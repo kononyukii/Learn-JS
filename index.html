@@ -7,10 +7,16 @@
   </head>
   <body>
     <input id="elem" value="text"/>
+    <input type="submit" id="button">
 
     <script>
       let elem = document.querySelector("#elem");
-      console.log(elem.hasAttribute("class"));
+      let button = document.querySelector('#button');
+      elem.value = 'test';
+
+      button.addEventListener('click', function() {
+        console.log(elem.getAttribute('value'));
+      });
     </script>
   </body>
 </html>
