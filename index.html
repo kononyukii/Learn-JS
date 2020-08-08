@@ -6,22 +6,13 @@
     <title>Document</title>
   </head>
   <body>
-    <p>text</p>
-    <p>text</p>
-    <p>text</p>
-    <p>text</p>
-    
+    <input id="elem" value="text" />
+
     <script>
-     let par = document.querySelectorAll('p');
+      let elem = document.querySelector("#elem");
+      let value = elem.getAttribute("value");
 
-     for (let elem of par) {
-       elem.addEventListener('click', func);
-     }
-
-     function func() {
-       this.innerHTML += '!';
-       this.removeEventListener('click', func);
-     }
+      console.log(value);
     </script>
   </body>
 </html>
