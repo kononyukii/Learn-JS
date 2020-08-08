@@ -6,13 +6,13 @@
     <title>Document</title>
   </head>
   <body>
-    <input id="elem" class="www zzz" />
+    <input id="elem" />
 
     <script>
       let elem = document.querySelector("#elem");
-      let clas = elem.getAttribute("class");
+      elem.setAttribute("value", 'text')
 
-      console.log(clas);
+      console.log(elem);
     </script>
   </body>
 </html>
