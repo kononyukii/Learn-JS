@@ -6,27 +6,22 @@
     <title>Document</title>
   </head>
   <body>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, porro
-      mollitia quisquam nobis accusamus vitae in inventore quod provident libero
-      quam totam dolores natus perspiciatis distinctio facere. Animi, sed
-      dolore.
-    </p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto et
-    sequi, pariatur hic aliquam reprehenderit tempora. Maxime, laborum deserunt
-    nostrum illum iure quidem sed ab amet eligendi possimus nam minima.
-    <input type="submit" value="1" id="button" />
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    
     <script>
-      let button = document.querySelector("#button");
+     let par = document.querySelectorAll('p');
 
-      button.addEventListener("click", func);
+     for (let elem of par) {
+       elem.addEventListener('click', func);
+     }
 
-      function func() {
-        button.value++;
-        if (button.value >= 10) {
-          this.removeEventListener("click", func);
-        }
-      }
+     function func() {
+       this.innerHTML += '!';
+       this.removeEventListener('click', func);
+     }
     </script>
   </body>
 </html>
