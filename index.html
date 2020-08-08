@@ -10,9 +10,11 @@
 
     <script>
      let elem = document.querySelector('#elem');
-     let length = elem.classList.length;
+     let classNames = elem.classList;
 
-     console.log(length);
+     for (let className of classNames) {
+      document.write(className + '<br>');
+     }
     </script>
   </body>
 </html>
