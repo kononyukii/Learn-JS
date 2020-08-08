@@ -6,11 +6,18 @@
     <title>Document</title>
   </head>
   <body>
-    <p id="elem" class="www ggg zzz"></p>
+    <div id="elem"></div>
+    <input type="submit" id="button" value="div">
 
     <script>
       let elem = document.querySelector("#elem");
-      elem.classList.toggle('www');
+      let button = document.querySelector('#button');
+
+      button.addEventListener('click', function() {
+        elem.style.width = '200px';
+        elem.style.height = '200px';
+        elem.style.border = '1px solid black';
+      })
      
       console.log(elem);
     </script>
