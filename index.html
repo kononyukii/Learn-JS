@@ -6,17 +6,13 @@
     <title>Document</title>
   </head>
   <body>
-    <input id="elem" value="text"/>
-    <input type="submit" id="button">
+    <p id="elem" class="www ggg zzz"></p>
 
     <script>
-      let elem = document.querySelector("#elem");
-      let button = document.querySelector('#button');
-      elem.value = 'test';
+     let elem = document.querySelector('#elem');
+     let length = elem.classList.length;
 
-      button.addEventListener('click', function() {
-        console.log(elem.getAttribute('value'));
-      });
+     console.log(length);
     </script>
   </body>
 </html>
