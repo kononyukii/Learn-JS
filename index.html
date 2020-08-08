@@ -6,16 +6,22 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="submit" value="1" id="button">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, porro
+      mollitia quisquam nobis accusamus vitae in inventore quod provident libero
+      quam totam dolores natus perspiciatis distinctio facere. Animi, sed
+      dolore.
+    </p>
+    <input type="submit" value="1" id="button" />
     <script>
-      let button = document.querySelector('#button');
+      let button = document.querySelector("#button");
 
-      button.addEventListener('click', func);
+      button.addEventListener("click", func);
 
       function func() {
         button.value++;
         if (button.value >= 10) {
-          this.removeEventListener('click', func);
+          this.removeEventListener("click", func);
         }
       }
     </script>
