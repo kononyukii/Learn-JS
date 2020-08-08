@@ -6,20 +6,23 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="elem">Lorem ipsum dolor sit amet.</div>
-    <input type="submit" id="button" value="div">
+    <ul>
+      <li id="elem">text</li>
+      <li id="elem">text</li>
+      <li id="elem">text</li>
+    </ul>
+    <input type="submit" id="button" value="div" />
 
     <script>
-      let elem = document.querySelector("#elem");
-      let button = document.querySelector('#button');
+      let elems = document.querySelectorAll("li");
+      let button = document.querySelector("#button");
 
-      button.addEventListener('click', function() {
-        elem.style.marginBottom = '20px';
-        elem.style.fontSize = '20px';
-        elem.style.background = 'gray';
-      })
-     
-      console.log(elem);
+      button.addEventListener("click", function () {
+        for (let elem of elems) {
+          elem.style.cssFloat = "left";
+          elem.style.marginRight = '25px';
+        }
+      });
     </script>
   </body>
 </html>
