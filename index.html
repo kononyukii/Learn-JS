@@ -8,24 +8,13 @@
   </head>
   <body>
     <p id="par">Lorem ipsum dolor sit amet.</p>
-    <input type="submit" id="button1" value="make it bold" />
-    <input type="submit" id="button2" value="make red" />
-    <input type="submit" id="button3" value="cross out" />
-
+    <input type="text" id="button1" value="text" />
     <script>
       let elem = document.querySelector("#par");
       let button1 = document.querySelector("#button1");
-      let button2 = document.querySelector("#button2");
-      let button3 = document.querySelector("#button3");
 
-      button1.addEventListener('click', function() {
-        elem.classList.toggle('weight');
-      });
-      button2.addEventListener('click', function() {
-        elem.classList.toggle("colored");
-      });
-      button3.addEventListener('click', function() {
-        elem.classList.toggle("line");
+      button1.addEventListener('blur', function() {
+        elem.innerHTML += button1.value;
       });
     </script>
   </body>
