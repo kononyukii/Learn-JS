@@ -3,25 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css">
     <title>Document</title>
   </head>
   <body>
-    <ul>
-      <li id="elem">text</li>
-      <li id="elem">text</li>
-      <li id="elem">text</li>
-    </ul>
-    <input type="submit" id="button" value="div" />
+    <p id="par">Lorem ipsum dolor sit amet.</p>
+    <input type="submit" id="button1" value="make it bold" />
+    <input type="submit" id="button2" value="make red" />
+    <input type="submit" id="button3" value="cross out" />
 
     <script>
-      let elems = document.querySelectorAll("li");
-      let button = document.querySelector("#button");
+      let elem = document.querySelector("#par");
+      let button1 = document.querySelector("#button1");
+      let button2 = document.querySelector("#button2");
+      let button3 = document.querySelector("#button3");
 
-      button.addEventListener("click", function () {
-        for (let elem of elems) {
-          elem.style.cssFloat = "left";
-          elem.style.marginRight = '25px';
-        }
+      button1.addEventListener('click', function() {
+        elem.classList.add('weight');
+      });
+      button2.addEventListener('click', function() {
+        elem.classList.add("colored");
+      });
+      button3.addEventListener('click', function() {
+        elem.classList.add("line");
       });
     </script>
   </body>
