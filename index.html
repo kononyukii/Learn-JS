@@ -7,23 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <p id="par"></p>
     <input type="number" class="num" />
-    <input type="number" class="num" />
-    <input type="number" class="num"/>
-    <input type="submit" id="button" value="text" />
     <script>
-      let elem = document.querySelector("#par");
-      let button = document.querySelector("#button");
-      let numbers = document.querySelectorAll(".num");
+      let numbers = document.querySelector(".num");
       let result = 0;
 
-      button.addEventListener("click", function () {
-        for (let numb of numbers) {
-          result += Number(numb.value);
+      numbers.addEventListener("blur", function () {
+        let arr = numbers.value.split('');
+        for (let elem of arr) {
+          result += Number(elem);
         }
-        elem.innerHTML += result;
-      });
+        console.log(result); 
+      });  
     </script>
   </body>
 </html>
