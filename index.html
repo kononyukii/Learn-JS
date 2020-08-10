@@ -3,18 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css" />
     <title>Document</title>
   </head>
   <body>
-    <p id="par">Lorem ipsum dolor sit amet.</p>
-    <input type="text" id="button1" value="text" />
+    <p id="par"></p>
+    <input type="number" class="num" />
+    <input type="number" class="num" />
+    <input type="number" class="num"/>
+    <input type="submit" id="button" value="text" />
     <script>
       let elem = document.querySelector("#par");
-      let button1 = document.querySelector("#button1");
+      let button = document.querySelector("#button");
+      let numbers = document.querySelectorAll(".num");
+      let result = 0;
 
-      button1.addEventListener('blur', function() {
-        elem.innerHTML += button1.value;
+      button.addEventListener("click", function () {
+        for (let numb of numbers) {
+          result += Number(numb.value);
+        }
+        elem.innerHTML += result;
       });
     </script>
   </body>
