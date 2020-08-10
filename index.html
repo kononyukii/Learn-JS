@@ -7,17 +7,19 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="number" class="num" />
+    <input type="text" class="num" />
     <script>
       let numbers = document.querySelector(".num");
       let result = 0;
+      let diff = 0;
 
       numbers.addEventListener("blur", function () {
-        let arr = numbers.value.split('');
+        let arr = numbers.value.split(', ');
         for (let elem of arr) {
           result += Number(elem);
         }
-        console.log(result); 
+        diff = result / arr.length;
+        console.log(diff); 
       });  
     </script>
   </body>
