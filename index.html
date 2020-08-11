@@ -7,17 +7,14 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" id="elem"/>
-    <input type="submit" id="button">
+    <input type="number" id="elem"/>
     
     <script>
       let elem = document.querySelector('#elem');
-      let button = document.querySelector('#button');
-
       
-      button.addEventListener('click', function() {
-        let str = elem.value.split('').reverse().join('');
-        if(str == elem.value) {
+      elem.addEventListener('blur', function() {
+        let arr = elem.value.split('');
+        if(arr.indexOf('3') != -1) {
           alert('yes');
         } else {
           alert('no');
