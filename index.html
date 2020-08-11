@@ -8,20 +8,17 @@
   </head>
   <body>
     <input type="text" id="full_name" placeholder="Иванов Иван Иванович"/>
-    <input type="text" id="surname" />
-    <input type="text" id="name" />
-    <input type="text" id="patronymic" />
     <script>
       let fullName = document.querySelector("#full_name");
-      let surname = document.querySelector('#surname');
-      let name = document.querySelector('#name');
-      let patronymic = document.querySelector('#patronymic');
+      let str = '';
       
       fullName.addEventListener("blur", function () {
         let arr = fullName.value.split(' ');
-        surname.value = arr[0];
-        name.value = arr[1];
-        patronymic.value = arr[2];
+        for (let elem of arr) {
+          elem = elem[0].toUpperCase() + elem.slice(1);
+          str += elem + ' ';
+        }
+        fullName.value = str;
       });  
     </script>
   </body>
