@@ -7,13 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" id="date" placeholder="31.01.2020"/>
+    <input type="text" id="elem"/>
+    <input type="submit" id="button">
     
     <script>
-      let date = document.querySelector('#date');
+      let elem = document.querySelector('#elem');
+      let button = document.querySelector('#button');
+
       
-      date.addEventListener('blur', function() {
-        date.value = date.value.split('.').reverse().join('/');
+      button.addEventListener('click', function() {
+        let str = elem.value.split('').reverse().join('');
+        if(str == elem.value) {
+          alert('yes');
+        } else {
+          alert('no');
+        }
       });
     </script>
   </body>
