@@ -7,17 +7,22 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="number" id="elem"/>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <input type="submit" id="elem"/>
     
     <script>
       let elem = document.querySelector('#elem');
+      let par = document.querySelectorAll('p');
+      let i = 0;
       
-      elem.addEventListener('blur', function() {
-        let arr = elem.value.split('');
-        if(arr.indexOf('3') != -1) {
-          alert('yes');
-        } else {
-          alert('no');
+      elem.addEventListener('click', function() {
+        for (let elem of par) {
+          i++;
+          elem.innerHTML += ' ' + i;
         }
       });
     </script>
