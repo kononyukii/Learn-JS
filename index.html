@@ -7,19 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" class="num" />
+    <input type="text" id="full_name" placeholder="Иванов Иван Иванович"/>
+    <input type="text" id="surname" />
+    <input type="text" id="name" />
+    <input type="text" id="patronymic" />
     <script>
-      let numbers = document.querySelector(".num");
-      let result = 0;
-      let diff = 0;
-
-      numbers.addEventListener("blur", function () {
-        let arr = numbers.value.split(', ');
-        for (let elem of arr) {
-          result += Number(elem);
-        }
-        diff = result / arr.length;
-        console.log(diff); 
+      let fullName = document.querySelector("#full_name");
+      let surname = document.querySelector('#surname');
+      let name = document.querySelector('#name');
+      let patronymic = document.querySelector('#patronymic');
+      
+      fullName.addEventListener("blur", function () {
+        let arr = fullName.value.split(' ');
+        surname.value = arr[0];
+        name.value = arr[1];
+        patronymic.value = arr[2];
       });  
     </script>
   </body>
