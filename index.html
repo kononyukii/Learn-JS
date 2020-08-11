@@ -7,22 +7,19 @@
     <title>Document</title>
   </head>
   <body>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <input type="submit" id="elem"/>
-    
+    <a class="elem" href="http://code.mu/ru">сайт</a><br />
+    <a class="elem" href="http://code.mu/ru">сайт</a><br />
+    <a class="elem" href="http://code.mu/ru">сайт</a><br /><br />
+    <input type="submit" id="elem" />
+
     <script>
-      let elem = document.querySelector('#elem');
-      let par = document.querySelectorAll('p');
+      let elem = document.querySelector("#elem");
+      let links = document.querySelectorAll("a");
       let i = 0;
-      
-      elem.addEventListener('click', function() {
-        for (let elem of par) {
-          i++;
-          elem.innerHTML += ' ' + i;
+
+      elem.addEventListener("click", function () {
+        for (let link of links) {
+          link.innerHTML += " " + link.href;
         }
       });
     </script>
