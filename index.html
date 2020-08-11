@@ -7,19 +7,15 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" id="full_name" placeholder="Иванов Иван Иванович"/>
+    <input type="text" id="elem" />
+    
     <script>
-      let fullName = document.querySelector("#full_name");
-      let str = '';
+      let elem = document.querySelector('#elem');
       
-      fullName.addEventListener("blur", function () {
-        let arr = fullName.value.split(' ');
-        for (let elem of arr) {
-          elem = elem[0].toUpperCase() + elem.slice(1);
-          str += elem + ' ';
-        }
-        fullName.value = str;
-      });  
+      elem.addEventListener('blur', function() {
+        let arr = elem.value.split(' ');
+        console.log(arr.length);
+      });
     </script>
   </body>
 </html>
