@@ -7,20 +7,20 @@
     <title>Document</title>
   </head>
   <body>
-    <a class="elem" href="http://code.mu/ru">сайт</a><br />
-    <a class="elem" href="http://code.mu/ru">сайт</a><br />
-    <a class="elem" href="http://code.mu/ru">сайт</a><br /><br />
-    <input type="submit" id="elem" />
+    <input type="text" id="elem" placeholder="31.12.1990" />
 
     <script>
       let elem = document.querySelector("#elem");
-      let links = document.querySelectorAll("a");
-      let i = 0;
 
-      elem.addEventListener("click", function () {
-        for (let link of links) {
-          link.innerHTML += " " + link.href;
-        }
+      elem.addEventListener('blur', function() {
+        let arr = elem.value.split('.');
+        let day = Number(arr[0]);
+        let month = Number(arr[1]);
+        let year = Number(arr[2]);
+        let date = new Date(year, month - 1, day);
+        let days = date.getDay();
+        let dayWeek = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+        elem.value = dayWeek[days];
       });
     </script>
   </body>
