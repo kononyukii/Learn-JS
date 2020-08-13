@@ -7,20 +7,22 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" id="elem" placeholder="31.12.1990" />
+    <input type="submit" value="+1" id="button1">
+    <input type="text" id="elem" />
+    <input type="submit" value="-1" id="button2"> 
 
     <script>
       let elem = document.querySelector("#elem");
+      let button1 = document.querySelector('#button1');
+      let button2 = document.querySelector('#button2');
 
-      elem.addEventListener('blur', function() {
-        let arr = elem.value.split('.');
-        let day = Number(arr[0]);
-        let month = Number(arr[1]);
-        let year = Number(arr[2]);
-        let date = new Date(year, month - 1, day);
-        let days = date.getDay();
-        let dayWeek = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
-        elem.value = dayWeek[days];
+      button1.addEventListener('click', function() {
+          elem.value++;
+      });
+      button2.addEventListener('click', function() {
+        if (Number(elem.value) > 0) {
+          elem.value--;
+        }
       });
     </script>
   </body>
