@@ -7,20 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" id="elem" />
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
+    <input type="text" id="elem" placeholder="Киев, Минск, Рига" />
+    <input type="submit" id="button" />
+    <ul></ul>
+
     <script>
       let elem = document.querySelector("#elem");
-      let par = document.querySelectorAll('p');
-      
-      for (let elems of par) {
-        elems.addEventListener('click', function() {
-          elem.value++;
-        });
-      }
+      let button = document.querySelector("#button");
+      let list = document.querySelector("ul");
+
+      button.addEventListener("click", function () {
+        let arr = elem.value.split(",");
+        for (let elems of arr) {
+          list.innerHTML += "<li>" + elems + "</li>";
+        }
+      });
     </script>
   </body>
 </html>
