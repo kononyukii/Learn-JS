@@ -9,13 +9,18 @@
   <body>
     <input type="text" id="inp" />
     <p></p>
+    <input type="submit" id="button">
     <script>
       let inp = document.querySelector("#inp");
-      let par = document.querySelector("p");
+      let par = document.querySelector("p")
+      let button = document.querySelector('#button')
 
-      inp.addEventListener("keyup", function () {
-        let result = Number(inp.value) * 1.8 + 32;
-
+      button.addEventListener("click", function () {
+        let num = Number(inp.value);
+        let result = 1;
+        for (let i = 1; i <= num; i++) {
+          result *= i;
+        }
         par.innerHTML = result;
       });
     </script>
