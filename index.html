@@ -12,24 +12,28 @@
     <script>
       let inp = document.querySelector("#inp");
       let button = document.querySelector("#button");
-      let base =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      
+      button.addEventListener('click', function() {
+        let arr = inp.value.split('');
+        inp.value = shuffle(arr).join('');
+      });
 
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
 
-      function getSimbl() {
-        let simb = '';
-        for (let i = 0; i < 8; i++) {
-          let rand = getRandomInt(0, 61);
-          simb += base[rand];
+      function shuffle(arr) {
+        let result = [];
+
+        while (arr.length > 0) {
+          let random = getRandomInt(0, arr.length - 1);
+          let elem = arr.splice(random, 1)[0];
+          result.push(elem);
         }
-        return simb;
+
+        return result;
       }
-      button.addEventListener("click", function () {
-        inp.value = getSimbl();
-      });
+      
     </script>
   </body>
 </html>
