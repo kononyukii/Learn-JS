@@ -7,20 +7,17 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="checkbox" id="inp" />
-    <input type="submit" id="button" />
+    <input type="text" id="inp" />
+    <p></p>
     <script>
       let inp = document.querySelector("#inp");
-      let button = document.querySelector("#button");
+      let par = document.querySelector("p");
 
-      button.addEventListener('click', function() {
-        if (inp.hasAttribute('checked')) {
-          inp.removeAttribute('checked');
-        } else {
-          inp.setAttribute('checked', 'on');
-        }
-      })
-      
+      inp.addEventListener("keyup", function () {
+        let result = Number(inp.value) * 1.8 + 32;
+
+        par.innerHTML = result;
+      });
     </script>
   </body>
 </html>
