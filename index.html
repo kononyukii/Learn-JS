@@ -7,32 +7,19 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" id="inp" />
+    <input type="checkbox" id="inp" />
     <input type="submit" id="button" />
     <script>
       let inp = document.querySelector("#inp");
       let button = document.querySelector("#button");
-      
+
       button.addEventListener('click', function() {
-        let arr = inp.value.split('');
-        inp.value = shuffle(arr).join('');
-      });
-
-      function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
-
-      function shuffle(arr) {
-        let result = [];
-
-        while (arr.length > 0) {
-          let random = getRandomInt(0, arr.length - 1);
-          let elem = arr.splice(random, 1)[0];
-          result.push(elem);
+        if (inp.hasAttribute('checked')) {
+          inp.removeAttribute('checked');
+        } else {
+          inp.setAttribute('checked', 'on');
         }
-
-        return result;
-      }
+      })
       
     </script>
   </body>
