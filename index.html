@@ -7,14 +7,14 @@
     <title>Document</title>
   </head>
   <body>
-   <textarea id="elem" cols="30" rows="5"></textarea>
-   <p id="par"></p>
+    <input type="text" id="elem" />
+    <input type="submit" id="button" />
     <script>
-      let elem = document.querySelector('#elem');
-      let par = document.querySelector('#par');
+      let elem = document.querySelector("#elem");
+      let button = document.querySelector("#button");
 
-      elem.addEventListener('blur', function() {
-        par.innerHTML = elem.value;
+      button.addEventListener("click", function () {
+        elem.setAttribute('disabled', 'true')
       });
     </script>
   </body>
