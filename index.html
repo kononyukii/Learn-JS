@@ -7,20 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <div>
-      <ul>
-        <li>text</li>
-        <li>text</li>
-        <li id="elem">text</li>
-        <li>text</li>
-        <li>text</li>
-      </ul>
-    </div>
+    <header>
+      <div class="www">
+        <p class="www">
+          <span id="elem"></span>
+        </p>
+      </div>
+    </header>
     <script>
       let elem = document.querySelector("#elem");
-      let parentParent = elem.parentElement.parentElement.classList.add('bord');
-
+      let parent = elem.closest('.www');
       
+      console.log(parent)
     </script>
   </body>
 </html>
