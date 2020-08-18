@@ -7,15 +7,19 @@
     <title>Document</title>
   </head>
   <body>
-    <p class="www">elem 1</p>
-    <p class="www">elem 2</p>
-    <p class="www">elem 3</p>
+    <div id="parent">
+      <p class="www">text</p>
+      <p class="www">text</p>
+      <p class="www">text</p>
+      <p class="ggg">text</p>
+      <p class="ggg">text</p>
+      <p class="ggg">text</p>
+    </div>
     <script>
-      let elems = document.getElementsByClassName('www');
-
-      for (let elem of elems) {
-        elem.classList.add("colored");
-      }
+      let parent = document.querySelector('#parent');
+      let elems1 = parent.querySelectorAll('.www');
+      let elems2 = parent.querySelectorAll('.ggg')
+      console.log(elems1)
     </script>
   </body>
 </html>
