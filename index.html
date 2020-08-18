@@ -16,8 +16,11 @@
     </ul>
     <script>
       let elem = document.querySelector("#elem");
-      let list = elem.lastElementChild.classList.add('red')
+      let lists = elem.children;
 
+      for (let list of lists) {
+        list.innerHTML += '!'
+      }
     </script>
   </body>
 </html>
