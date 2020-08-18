@@ -7,22 +7,11 @@
     <title>Document</title>
   </head>
   <body>
-    <ul>
-      <li>text1</li>
-      <li>text2</li>
-      <li id="elem">text3</li>
-      <li>text4</li>
-      <li>text5</li>
-    </ul>
+    <div id="elem"></div>
     <script>
-      let elem = document.querySelector("#elem");
-      let prev = elem.previousElementSibling;
-      let next = elem.nextElementSibling;
-      let submit = '';
+      let elem = document.getElementById('elem');
 
-      submit = prev.innerHTML;
-      prev.innerHTML = next.innerHTML;
-      next.innerHTML = submit;
+      elem.innerHTML = 'Hello World'
     </script>
   </body>
 </html>
