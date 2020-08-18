@@ -1,6 +1,8 @@
 .bord {
     border: 1px solid red;
 }
-
+.colored {
+    color: red;
+}
 
 
