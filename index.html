@@ -7,19 +7,15 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="parent">
-      <p class="www">text</p>
-      <p class="www">text</p>
-      <p class="www">text</p>
-      <p class="ggg">text</p>
-      <p class="ggg">text</p>
-      <p class="ggg">text</p>
-    </div>
+   <textarea id="elem" cols="30" rows="5"></textarea>
+   <p id="par"></p>
     <script>
-      let parent = document.querySelector('#parent');
-      let elems1 = parent.querySelectorAll('.www');
-      let elems2 = parent.querySelectorAll('.ggg')
-      console.log(elems1)
+      let elem = document.querySelector('#elem');
+      let par = document.querySelector('#par');
+
+      elem.addEventListener('blur', function() {
+        par.innerHTML = elem.value;
+      });
     </script>
   </body>
 </html>
