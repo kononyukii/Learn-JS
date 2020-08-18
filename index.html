@@ -7,22 +7,17 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" id="inp" />
-    <p></p>
-    <input type="submit" id="button">
+    <ul id="elem">
+      <li>text</li>
+      <li>text</li>
+      <li>text</li>
+      <li>text</li>
+      <li>text</li>
+    </ul>
     <script>
-      let inp = document.querySelector("#inp");
-      let par = document.querySelector("p")
-      let button = document.querySelector('#button')
+      let elem = document.querySelector("#elem");
+      let list = elem.firstElementChild.classList.add('red');
 
-      button.addEventListener("click", function () {
-        let num = Number(inp.value);
-        let result = 1;
-        for (let i = 1; i <= num; i++) {
-          result *= i;
-        }
-        par.innerHTML = result;
-      });
     </script>
   </body>
 </html>
