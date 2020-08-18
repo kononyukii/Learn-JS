@@ -7,18 +7,14 @@
     <title>Document</title>
   </head>
   <body>
-    <ul>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-    </ul>
+    <p class="www">elem 1</p>
+    <p class="www">elem 2</p>
+    <p class="www">elem 3</p>
     <script>
-      let elems = document.getElementsByTagName('li');
+      let elems = document.getElementsByClassName('www');
 
       for (let elem of elems) {
-        elem.classList.add('colored')
+        elem.classList.add("colored");
       }
     </script>
   </body>
