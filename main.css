@@ -1,11 +1,6 @@
-.line {
-    text-decoration: line-through;
+.bord {
+    border: 1px solid red;
 }
 
-.weight {
-    font-weight: bold;
-}
 
-.colored {
-    color: red;
-}
+

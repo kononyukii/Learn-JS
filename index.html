@@ -7,20 +7,20 @@
     <title>Document</title>
   </head>
   <body>
-    <ul id="elem">
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-    </ul>
+    <div>
+      <ul>
+        <li>text</li>
+        <li>text</li>
+        <li id="elem">text</li>
+        <li>text</li>
+        <li>text</li>
+      </ul>
+    </div>
     <script>
       let elem = document.querySelector("#elem");
-      let lists = elem.children;
+      let parent = elem.parentElement.classList.add('bord');
 
-      for (let list of lists) {
-        list.innerHTML += '!'
-      }
+      
     </script>
   </body>
 </html>
