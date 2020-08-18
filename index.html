@@ -8,13 +8,18 @@
   </head>
   <body>
     <input type="text" id="elem" />
-    <input type="submit" id="button" />
+    <input type="submit" id="button1" value="block"/>
+    <input type="submit" id="button2" value="unblock"/>
     <script>
       let elem = document.querySelector("#elem");
-      let button = document.querySelector("#button");
+      let button1 = document.querySelector("#button1");
+      let button2 = document.querySelector("#button2");
 
-      button.addEventListener("click", function () {
+      button1.addEventListener("click", function () {
         elem.setAttribute('disabled', 'true')
+      });
+      button2.addEventListener("click", function () {
+        elem.disabled = false;
       });
     </script>
   </body>
