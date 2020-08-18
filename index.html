@@ -7,18 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <div class="www">
-        <p class="www">
-          <span id="elem"></span>
-        </p>
-      </div>
-    </header>
+    <ul>
+      <li>text</li>
+      <li>text</li>
+      <li id="elem">text</li>
+      <li>text</li>
+      <li>text</li>
+    </ul>
     <script>
       let elem = document.querySelector("#elem");
-      let parent = elem.closest('.www');
-      
-      console.log(parent)
+      let prev = elem.previousElementSibling;
+
+      prev.innerHTML += '!';
     </script>
   </body>
 </html>
