@@ -1,8 +1,9 @@
-.bord {
+.bord-red {
     border: 1px solid red;
 }
-.colored {
-    color: red;
+.bord-green {
+    border: 1px solid greenyellow;
 }
+
 
 

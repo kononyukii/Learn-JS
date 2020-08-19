@@ -7,17 +7,19 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="checkbox"  id="elem">
-    <p></p>
+    <input type="text"  id="elem">
+    
     <script>
       let elem = document.querySelector('#elem')
-      let par = document.querySelector('p');
+      
 
       elem.addEventListener('change', function() {
-        if (elem.checked) {
-          par.innerHTML = this.value;
+        let str = elem.value;
+
+        if (str.length - 1 <= 5) {
+          elem.classList.add('bord-green');
         } else {
-          par.innerHTML = 'off';
+          elem.classList.add('bord-red');
         }
       });
     </script>
