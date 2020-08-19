@@ -7,17 +7,24 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text"  id="elem">
-    
+    <input type="text" id="elem" />
+    <p></p>
     <script>
-      let elem = document.querySelector('#elem')
-      
-      elem.addEventListener('input', function() {
-        let num = (elem.value).length - 1;
+      let elem = document.querySelector("#elem");
+      let par = document.querySelector("p");
 
-        if (num > 5) {
-          alert('Длина текста достигла 5-ти');
-        } 
+      elem.addEventListener("input", function () {
+        let num = elem.value.length;
+        let num1 = 5;
+        let diff = num1 - num;
+
+        if (diff > 0) {
+          par.innerHTML = "Ещё можно ввести" + " " + diff + " " + "символов";
+        } else if (diff == 0) {
+          par.innerHTML = "Максимальное количество символов";
+        } else {
+          par.innerHTML = "Длина текста превышена на" + " " + Math.abs(diff) + " " + 'символов';
+        }
       });
     </script>
   </body>
