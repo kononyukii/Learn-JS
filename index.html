@@ -7,20 +7,22 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="submit" id="button1" value="+"/>
     <input type="checkbox" id="elem" />
-    <input type="submit" id="button2" value="-"/>
+    <input type="submit" id="button" />
+    <p></p>
     <script>
       let elem = document.querySelector("#elem");
-      let button1 = document.querySelector("#button1");
-      let button2 = document.querySelector('#button2')
+      let button = document.querySelector("#button");
+      let par = document.querySelector('p');
+      
 
-      button1.addEventListener("click", function () {
-        elem.setAttribute('checked', true);
+      button.addEventListener('click', function() {
+        if (elem.checked) {
+          par.innerHTML = 'привет';
+        } else {
+          par.innerHTML = 'пока';
+        }
       });
-      button2.addEventListener('click', function() {
-        elem.removeAttribute('checked')
-      })
     </script>
   </body>
 </html>
