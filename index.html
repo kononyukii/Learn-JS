@@ -7,14 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text"  id="elem">
+    <input type="checkbox"  id="elem">
     <p></p>
     <script>
       let elem = document.querySelector('#elem')
       let par = document.querySelector('p');
 
       elem.addEventListener('change', function() {
-        par.innerHTML = this.value;
+        if (elem.checked) {
+          par.innerHTML = this.value;
+        } else {
+          par.innerHTML = 'off';
+        }
       });
     </script>
   </body>
