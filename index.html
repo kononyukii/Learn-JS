@@ -9,19 +9,13 @@
   <body>
     <input type="checkbox" id="elem" />
     <input type="submit" id="button" />
-    <p></p>
     <script>
       let elem = document.querySelector("#elem");
       let button = document.querySelector("#button");
-      let par = document.querySelector('p');
       
 
       button.addEventListener('click', function() {
-        if (elem.checked) {
-          par.innerHTML = 'привет';
-        } else {
-          par.innerHTML = 'пока';
-        }
+        elem.checked = !elem.checked;
       });
     </script>
   </body>
