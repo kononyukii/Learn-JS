@@ -12,15 +12,12 @@
     <script>
       let elem = document.querySelector('#elem')
       
+      elem.addEventListener('input', function() {
+        let num = (elem.value).length - 1;
 
-      elem.addEventListener('change', function() {
-        let str = elem.value;
-
-        if (str.length - 1 <= 5) {
-          elem.classList.add('bord-green');
-        } else {
-          elem.classList.add('bord-red');
-        }
+        if (num > 5) {
+          alert('Длина текста достигла 5-ти');
+        } 
       });
     </script>
   </body>
