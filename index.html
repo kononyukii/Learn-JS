@@ -7,22 +7,14 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="radio" name="elem" value="1" checked>
-    <input type="radio" name="elem" value="2">
-    <input type="radio" name="elem" value="3"> <br>
-    <input type="submit" id="button" />
+    <input type="text"  id="elem">
     <p></p>
     <script>
-      let radios = document.querySelectorAll('input[type="radio"]');
-      let button = document.querySelector("#button");
+      let elem = document.querySelector('#elem')
       let par = document.querySelector('p');
 
-      button.addEventListener('click', function() {
-        for (let radio of radios) {
-          if (radio.checked) {
-            par.innerHTML = radio.value;
-          }
-        }
+      elem.addEventListener('change', function() {
+        par.innerHTML = this.value;
       });
     </script>
   </body>
