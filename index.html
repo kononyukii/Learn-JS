@@ -19,13 +19,9 @@
     <p></p>
     <script>
       let select = document.querySelector("#select");
-      let date = new Date();
-      let day = date.getDay();
       
-      if (day > 0) {
-        select.selectedIndex = day -1;
-      } else {
-        select.selectedIndex = 7 - 1;
+      for (let option of select) {
+        option.innerHTML += ' ' + option.value;
       }
       
       select.addEventListener("change", function () {
