@@ -19,14 +19,16 @@
     <p></p>
     <script>
       let select = document.querySelector("#select");
-      let par = document.querySelector('p');
-
+      let date = new Date();
+      
+      if (date.getDay() > 0) {
+        select.value = date.getDay();
+      } else {
+        select.value = 7;
+      }
+      
       select.addEventListener("change", function () {
-        if (this.value < 6) {
-          par.innerHTML = 'рабочий';
-        } else {
-          par.innerHTML = 'выходной';
-        }
+        
       });
     </script>
   </body>
