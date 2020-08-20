@@ -8,20 +8,32 @@
   </head>
   <body>
     <select id="select">
-      <option>one</option>
-      <option selected>two</option>
-      <option>three</option>
+      <option selected>2020</option>
+      <option>2021</option>
+      <option>2022</option>
+      <option>2023</option>
+      <option>2024</option>
+      <option>2025</option>
+      <option>2026</option>
+      <option>2027</option>
+      <option>2028</option>
+      <option>2029</option>
+      <option>2030</option>
+      <option>2100</option>
+      <option>2400</option>
     </select>
-    <input type="submit" id="button">
-    <p></p>
     <script>
-      let select = document.querySelector('#select');
-      let par = document.querySelector('p');
-      let button = document.querySelector('#button');
+      let select = document.querySelector("#select");
 
-      button.addEventListener('click', function() {
-        par.innerHTML = select.value;
-      })
+      select.addEventListener("change", function () {
+        if (this.value % 4 == 0  && this.value % 100 != 0) {
+          alert ('високосный');
+        } else if (this.value % 400 == 0) {
+          alert ('високосный');
+        } else {
+          alert ('no');
+        }
+      });
     </script>
   </body>
 </html>
