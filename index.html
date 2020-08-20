@@ -8,31 +8,26 @@
   </head>
   <body>
     <select id="select">
-      <option selected>2020</option>
-      <option>2021</option>
-      <option>2022</option>
-      <option>2023</option>
-      <option>2024</option>
-      <option>2025</option>
-      <option>2026</option>
-      <option>2027</option>
-      <option>2028</option>
-      <option>2029</option>
-      <option>2030</option>
-      <option>2100</option>
-      <option>2400</option>
+      <option value="0">янв</option>
+      <option value="1">фев</option>
+      <option value="2">мар</option>
+      <option value="3">апр</option>
+      <option value="4">май</option>
+      <option value="5">июн</option>
+      <option value="6">июл</option>
+      <option value="7">авг</option>
+      <option value="8">сен</option>
+      <option value="9">окт</option>
+      <option value="10">ноя</option>
+      <option value="11">дек</option>
     </select>
     <script>
       let select = document.querySelector("#select");
+      let date = new Date();
+      select.value = date.getMonth();
 
       select.addEventListener("change", function () {
-        if (this.value % 4 == 0  && this.value % 100 != 0) {
-          alert ('високосный');
-        } else if (this.value % 400 == 0) {
-          alert ('високосный');
-        } else {
-          alert ('no');
-        }
+        
       });
     </script>
   </body>
