@@ -21,13 +21,15 @@
       <option value="10">ноя</option>
       <option value="11">дек</option>
     </select>
+    <input type="text" id="elem">
     <script>
       let select = document.querySelector("#select");
+      let elem = document.querySelector('#elem');
       let date = new Date();
       select.value = date.getMonth();
 
-      select.addEventListener("change", function () {
-        
+      elem.addEventListener("blur", function () {
+        select.selectedIndex = Number(elem.value) - 1;
       });
     </script>
   </body>
