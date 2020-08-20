@@ -20,11 +20,12 @@
     <script>
       let select = document.querySelector("#select");
       let date = new Date();
+      let day = date.getDay();
       
-      if (date.getDay() > 0) {
-        select.value = date.getDay();
+      if (day > 0) {
+        select.selectedIndex = day -1;
       } else {
-        select.value = 7;
+        select.selectedIndex = 7 - 1;
       }
       
       select.addEventListener("change", function () {
