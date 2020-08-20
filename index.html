@@ -7,22 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" id="elem1" />
-    <input type="text" id="elem2" />
+    <select id="select">
+      <option>one</option>
+      <option selected>two</option>
+      <option>three</option>
+    </select>
+    <input type="submit" id="button">
+    <p></p>
     <script>
-      let elem1 = document.querySelector("#elem1");
-      let elem2 = document.querySelector("#elem2");
+      let select = document.querySelector('#select');
+      let par = document.querySelector('p');
+      let button = document.querySelector('#button');
 
-      elem1.addEventListener('input', function() {
-        if (elem1.value.length == 2) {
-        elem2.focus();
-      }
-      });
-      elem2.addEventListener('input', function() {
-        if (elem2.value.length == 2) {
-        elem2.blur();
-      }
-      });
+      button.addEventListener('click', function() {
+        par.innerHTML = select.value;
+      })
     </script>
   </body>
 </html>
