@@ -7,16 +7,16 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="submit" id="button" data-sum="0" />
+    <input id="elem" data-length="5">
+    <p class="colored"></p>
     <script>
-      let button = document.querySelector("#button");
+      let elem = document.querySelector("#elem");
+      let par = document.querySelector('p');
 
-      button.addEventListener("click", function () {
-        button.dataset.sum++;
-      });
-
-      button.addEventListener("dblclick", function () {
-        alert(button.dataset.sum);
+      elem.addEventListener("blur", function () {
+        if (elem.value.length != elem.dataset.length) {
+          par.innerHTML ='количество введенных символов не совпадает с заданным';
+        };
       });
     </script>
   </body>
