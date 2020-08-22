@@ -7,20 +7,15 @@
     <title>Document</title>
   </head>
   <body>
-    <input id="elem" data-min="5" data-max="10" />
-    <p class="colored"></p>
+    <div id="elem" data-product-price="1000" data-product-amount="5">
+      товар яблоки
+    </div>
     <script>
       let elem = document.querySelector("#elem");
-      let par = document.querySelector("p");
 
-      elem.addEventListener("blur", function () {
-        if (
-          elem.value.length < elem.dataset.min ||
-          elem.value.length > elem.dataset.max
-        ) {
-          par.innerHTML =
-            "количество введенных символов не совпадает с заданным";
-        }
+      elem.addEventListener("click", function () {
+        let sum = elem.dataset.productPrice * elem.dataset.productAmount;
+        elem.innerHTML += " " + "-" + " " + sum;
       });
     </script>
   </body>
