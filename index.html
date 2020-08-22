@@ -7,16 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="elem" data-product-price="1000" data-product-amount="5">
-      товар яблоки
-    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
     <script>
-      let elem = document.querySelector("#elem");
+      let elems = document.querySelectorAll("p");
+      let i = 0;
 
-      elem.addEventListener("click", function () {
-        let sum = elem.dataset.productPrice * elem.dataset.productAmount;
-        elem.innerHTML += " " + "-" + " " + sum;
-      });
+      for (let elem of elems) {
+        i++;
+        elem.setAttribute('data-num', i);
+      };
     </script>
   </body>
 </html>
