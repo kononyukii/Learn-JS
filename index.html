@@ -7,20 +7,17 @@
     <title>Document</title>
   </head>
   <body>
-    <div data-num="1">text</div>
-    <div data-num="2">text</div>
-    <div data-num="3">text</div>
-    <div data-num="4">text</div>
-    <div data-num="5">text</div>
+    <input type="submit" id="button" data-sum="0" />
     <script>
-      let elems = document.querySelectorAll("div");
+      let button = document.querySelector("#button");
 
-      for (let elem of elems) {
-        elem.addEventListener("click", function () {
-        this.innerHTML += this.dataset.num;
+      button.addEventListener("click", function () {
+        button.dataset.sum++;
       });
-      }ж
-      
+
+      button.addEventListener("dblclick", function () {
+        alert(button.dataset.sum);
+      });
     </script>
   </body>
 </html>
