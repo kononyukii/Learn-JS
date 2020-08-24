@@ -7,21 +7,13 @@
     <title>Document</title>
   </head>
   <body>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+   <div id="elem">0 : 0</div>
     <script>
-      let elems = document.querySelectorAll("p");
-      let i = 0;
+      let elem = document.getElementById("elem");
 
-      for (let elem of elems) {
-        i++;
-        elem.setAttribute('data-num', i);
-      };
+      elem.addEventListener('mousemove', function(event) {
+        elem.innerHTML = event.clientX + ' : ' + event.clientY;
+      });
     </script>
   </body>
 </html>
