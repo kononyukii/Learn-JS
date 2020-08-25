@@ -17,7 +17,7 @@
         console.log(this.value + ", " + surname + " " + name);
       }
 
-      func.call(elem, 'Иванов', 'Иван'); // тут должно вывести 'привет, Иванов Иван'
+      func.apply(elem, ['Иванов', 'Иван']); // тут должно вывести 'привет, Иванов Иван'
     </script>
   </body>
 </html>
