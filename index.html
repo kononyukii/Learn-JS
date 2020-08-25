@@ -7,15 +7,26 @@
     <title>Document</title>
   </head>
   <body>
-    <p id="par">Text</p>
+    <ul id="elem">
+      <li>text</li>
+      <li>text</li>
+      <li>text</li>
+      <li>text</li>
+      <li>text</li>
+    </ul>
     <script>
-      let par = document.querySelector('#par');
+      let elems = document.querySelectorAll("#elem li");
 
-      par.addEventListener('click', function(event) {
-        if (event.altKey) {
-          par.classList.add('colored')
+      for (let elem of elems) {
+        elem.addEventListener("click", function (event) {
+          if (event.ctrlKey) {
+            elem.innerHTML += " 1";
+          }
+          if (event.shiftKey) {
+            elem.innerHTML += " 2";
+          }
+        });
       }
-      });
     </script>
   </body>
 </html>
