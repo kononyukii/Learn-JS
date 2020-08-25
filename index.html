@@ -7,26 +7,14 @@
     <title>Document</title>
   </head>
   <body>
-    <ul id="elem">
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-    </ul>
+    <a href="http://code.mu/" id="elem">JavaScript</a>
     <script>
-      let elems = document.querySelectorAll("#elem li");
+      let elem = document.querySelector("#elem");
 
-      for (let elem of elems) {
-        elem.addEventListener("click", function (event) {
-          if (event.ctrlKey) {
-            elem.innerHTML += " 1";
-          }
-          if (event.shiftKey) {
-            elem.innerHTML += " 2";
-          }
-        });
-      }
+      elem.addEventListener('click', function(event) {
+        event.preventDefault();
+        elem.innerHTML += ' ' + elem.href;
+      })
     </script>
   </body>
 </html>
