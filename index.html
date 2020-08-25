@@ -7,20 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="number" id="inp1" />
-    <input type="number" id="inp2" />
-    <p id="par"></p>
-    <a href="http://code.mu/" id="elem">JavaScript</a>
+    <input id="elem" value="3" />
     <script>
-      let elem = document.querySelector("#elem");
-      let inp1 = document.querySelector("#inp1");
-      let inp2 = document.querySelector("#inp2");
-      let par = document.querySelector("#par");
+      "use strict";
 
-      elem.addEventListener("click", function (event) {
-        event.preventDefault();
-        par.innerHTML = Number(inp1.value) + Number(inp2.value);
-      });
+      let elem = document.querySelector("#elem");
+      elem.addEventListener("blur", func);
+
+      function func() {
+        let self = this;
+        alert(square());
+
+        function square() {
+          return self.value * self.value;
+        }
+      }
     </script>
   </body>
 </html>
