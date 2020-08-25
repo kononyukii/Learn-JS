@@ -15,11 +15,10 @@
       elem.addEventListener("blur", func);
 
       function func() {
-        let self = this;
-        alert(square());
+        alert(square(this));
 
-        function square() {
-          return self.value * self.value;
+        function square(param) {
+          return param.value * param.value;
         }
       }
     </script>
