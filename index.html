@@ -13,7 +13,7 @@
       let start = document.querySelector('#start');
       let i = 100;
 
-      start.addEventListener('click', function() {
+      start.addEventListener('click', function func() {
 
         let startId = setInterval(() => {
           console.log(i--);
@@ -23,6 +23,7 @@
           }
         }, 1000);
         
+        this.removeEventListener('click', func);
       });
       
     </script>
