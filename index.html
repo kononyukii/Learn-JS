@@ -7,29 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="start">start</button>
-    <button id="stop">stop</button>
+    <input id="elem" value="10" />
     <script>
       "use strict";
-      let start = document.querySelector('#start');
-      let stop = document.querySelector('#stop');
-      let i = 10;
-      let timerId;
+      let elem = document.querySelector("#elem");
 
-      start.addEventListener('click', function fixDblclick() {
-        timerId = setInterval(() => {
-          console.log(i--);
+      let inputCheck = setInterval(function () {
+        elem.value = Number(elem.value) - 1;
 
-          if(i <= 0) {
-          clearInterval(timerId);
+        if (Number(elem.value) <= 0) {
+          clearInterval(inputCheck);
         }
-        }, 1000);
-      });
-
-      stop.addEventListener('click', function() {
-        clearInterval(timerId);
-      });
-      
+      }, 1000);
     </script>
   </body>
 </html>
