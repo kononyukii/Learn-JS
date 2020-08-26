@@ -7,18 +7,24 @@
     <title>Document</title>
   </head>
   <body>
+    <button id="start">start</button>
     <script>
       "use strict";
+      let start = document.querySelector('#start');
+      let i = 100;
 
-      let i = 10;
+      start.addEventListener('click', function() {
 
-      let timerId = setInterval(() => {
-        console.log(i--);
+        let startId = setInterval(() => {
+          console.log(i--);
 
-        if (i <= 0) {
-          clearInterval(timerId);
-        }
-      }, 1000);
+          if (i <= 0) {
+            clearInterval(startId);
+          }
+        }, 1000);
+        
+      });
+      
     </script>
   </body>
 </html>
