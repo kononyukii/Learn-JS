@@ -7,20 +7,10 @@
     <title>Document</title>
   </head>
   <body>
-    <input id="elem" value="привет" />
     <script>
       "use strict";
 
-      let elem = document.querySelector("#elem");
-
-      function func(surname, name) {
-        console.log(this.value + ", " + surname + " " + name);
-      }
-
-      func = func.bind(elem);
-
-      func("Иванов", "Иван"); // тут должно вывести 'привет, Иванов Иван'
-      func("Петров", "Петр"); // тут должно вывести 'привет, Петров Петр'
+      setInterval(() => console.log('hello'), 3000)
     </script>
   </body>
 </html>
