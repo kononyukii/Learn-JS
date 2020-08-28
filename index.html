@@ -7,17 +7,23 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" value="2" id="elem">
+    <input type="text" value="10" id="elem" />
+    <p></p>
     <script>
       "use strict";
       let elem = document.querySelector("#elem");
+      let par = document.querySelector('p');
 
-      setInterval(() => {
+      elem.addEventListener("blur", function () {
+        par.innerHTML = elem.value;
+        let inputId = setInterval(() => {
+          par.innerHTML = Number(par.innerHTML) - 1;
 
-        elem.innerHTML = Number(elem.innerHTML) - 1;
-        elem.value = Number(elem.value) * Number(elem.value);
-      }, 1000);
+          if (Number(par.innerHTML) <= 0) {
+            clearInterval(inputId);
+          }
+        }, 1000);
+      });
     </script>
   </body>
 </html>
- 
