@@ -7,22 +7,16 @@
     <title>Document</title>
   </head>
   <body>
-    <p id="elem">10</p>
-    <button id="button">start</button>
+    <input type="text" value="2" id="elem">
     <script>
       "use strict";
       let elem = document.querySelector("#elem");
-      let button = document.querySelector('#button');
 
-      button.addEventListener('click', function() {
-        let elemInterval = setInterval(() => {
+      setInterval(() => {
+
         elem.innerHTML = Number(elem.innerHTML) - 1;
-
-        if(Number(elem.innerHTML) <= 0) {
-          clearInterval(elemInterval);
-        }
+        elem.value = Number(elem.value) * Number(elem.value);
       }, 1000);
-      });
     </script>
   </body>
 </html>
