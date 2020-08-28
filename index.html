@@ -7,23 +7,30 @@
     <title>Document</title>
   </head>
   <body>
-    <p>Lorem ipsum dolor sit amet.</p>
+    <p></p>
     <script>
       "use strict";
       let par = document.querySelector("p");
 
-      function changeColor() {
-        par.style.color = "red";
-        setInterval(() => {
-          if (par.style.color === "red") {
-            par.style.color = "green";
-          } else {
-            par.style.color = "red";
-          }
-        }, 1000);
+      function addZero(num) {
+        if (num >= 0 && num <= 9) {
+          return "0" + num;
+        } else {
+          return num;
+        }
       }
+      window.addEventListener("load", function () {
+        setInterval(() => {
+          let date = new Date();
 
-      window.addEventListener('load', changeColor);
+          par.innerHTML =
+            addZero(date.getHours()) +
+            ":" +
+            addZero(date.getMinutes()) +
+            ":" +
+            addZero(date.getSeconds());
+        }, 1000);
+      });
     </script>
   </body>
 </html>
