@@ -7,20 +7,23 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" value="10" id="elem" />
+    <input type="text" id="elem" />
     <p></p>
+    <button id="button">start</button>
     <script>
       "use strict";
       let elem = document.querySelector("#elem");
       let par = document.querySelector('p');
+      let button = document.querySelector('#button');
 
-      elem.addEventListener("blur", function () {
+      button.addEventListener('click', function() {
         par.innerHTML = elem.value;
-        let inputId = setInterval(() => {
-          par.innerHTML = Number(par.innerHTML) - 1;
 
-          if (Number(par.innerHTML) <= 0) {
-            clearInterval(inputId);
+        let parTime = setInterval(() => {
+          par.innerHTML = par.innerHTML - 1;
+
+          if (par.innerHTML <= 0) {
+            clearInterval(parTime);
           }
         }, 1000);
       });
