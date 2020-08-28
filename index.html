@@ -7,7 +7,7 @@
     <title>Document</title>
   </head>
   <body>
-    <p id="elem">1</p>
+    <p id="elem">10</p>
     <button id="button">start</button>
     <script>
       "use strict";
@@ -15,8 +15,12 @@
       let button = document.querySelector('#button');
 
       button.addEventListener('click', function() {
-        setInterval(() => {
-        elem.innerHTML = Number(elem.innerHTML) + 1;
+        let elemInterval = setInterval(() => {
+        elem.innerHTML = Number(elem.innerHTML) - 1;
+
+        if(Number(elem.innerHTML) <= 0) {
+          clearInterval(elemInterval);
+        }
       }, 1000);
       });
     </script>
