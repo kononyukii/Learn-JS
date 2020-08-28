@@ -7,29 +7,23 @@
     <title>Document</title>
   </head>
   <body>
-    <p>1</p>
-    <button id="start">start</button>
-    <button id="stop">stop</button>
+    <p>Lorem ipsum dolor sit amet.</p>
     <script>
       "use strict";
       let par = document.querySelector("p");
-      let start = document.querySelector("#start");
-      let stop = document.querySelector("#stop");
-      let parTime;
 
-      start.addEventListener("click", timerOn);
-
-      function timerOn() {
-        parTime = setInterval(() => {
-          par.innerHTML = Number(par.innerHTML) + 1;
+      function changeColor() {
+        par.style.color = "red";
+        setInterval(() => {
+          if (par.style.color === "red") {
+            par.style.color = "green";
+          } else {
+            par.style.color = "red";
+          }
         }, 1000);
-        start.removeEventListener("click", timerOn);
       }
 
-      stop.addEventListener("click", function () {
-        clearInterval(parTime);
-        start.addEventListener("click", timerOn);
-      });
+      window.addEventListener('load', changeColor);
     </script>
   </body>
 </html>
