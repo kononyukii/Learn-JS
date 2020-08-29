@@ -7,22 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <ol id="elem"></ol>
-    <button id="button">click me</button>
+    <ul id="elem"></ul>
+    
     <script>
       "use strict";
       let elem = document.querySelector("#elem");
-      let button = document.querySelector("#button");
-
-      button.addEventListener("click", function () {
-        let li = document.createElement("li");
-        li.innerHTML = "пункт";
+      
+      for (let i = 1; i <= 10; i++) {
+        let li = document.createElement('li');
+        li.innerHTML = i;
+        
         elem.appendChild(li);
-
-        li.addEventListener('click', function() {
-          li.innerHTML += '!';
-        });
-      });
+      }
     </script>
   </body>
 </html>
