@@ -7,29 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-    <p></p>
+    <ol id="elem"></ol>
+    <button id="button">click me</button>
     <script>
       "use strict";
-      let par = document.querySelector("p");
+      let elem = document.querySelector("#elem");
+      let button = document.querySelector("#button");
 
-      function addZero(num) {
-        if (num >= 0 && num <= 9) {
-          return "0" + num;
-        } else {
-          return num;
-        }
-      }
-      window.addEventListener("load", function () {
-        setInterval(() => {
-          let date = new Date();
+      button.addEventListener("click", function () {
+        let li = document.createElement("li");
+        li.innerHTML = "пункт";
+        elem.appendChild(li);
 
-          par.innerHTML =
-            addZero(date.getHours()) +
-            ":" +
-            addZero(date.getMinutes()) +
-            ":" +
-            addZero(date.getSeconds());
-        }, 1000);
+        li.addEventListener('click', function() {
+          li.innerHTML += '!';
+        });
       });
     </script>
   </body>
