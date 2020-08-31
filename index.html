@@ -18,6 +18,10 @@
         let li = document.createElement('li');
         li.innerHTML = elem;
 
+        li.addEventListener('click', function() {
+          this.innerHTML += '!';
+        });
+
         parent.appendChild(li);
       }
     </script>
