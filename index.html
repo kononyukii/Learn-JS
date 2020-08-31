@@ -7,17 +7,22 @@
     <title>Document</title>
   </head>
   <body>
-    <ul id="elem"></ul>
+    <div id="parent"></div>
+    <p id="elem"></p>
     
     <script>
       "use strict";
       let elem = document.querySelector("#elem");
+      let parent = document.querySelector('#parent');
       
-      for (let i = 1; i <= 10; i++) {
-        let li = document.createElement('li');
-        li.innerHTML = i;
-        
-        elem.appendChild(li);
+      for (let i = 0; i < 5; i++) {
+        let input = document.createElement('input');
+
+        input.addEventListener('blur', function() {
+          elem.innerHTML = this.value;
+        });
+
+        parent.appendChild(input);
       }
     </script>
   </body>
