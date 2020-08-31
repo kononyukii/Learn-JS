@@ -7,7 +7,7 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="parent"></div>
+    <ul id="parent"></ul>
     <script>
       "use strict";
 
@@ -15,10 +15,10 @@
       let arr = [1, 2, 3, 4, 5];
       
       for (let elem of arr) {
-        let p = document.createElement('p');
-        p.innerHTML = elem + "1";
+        let li = document.createElement('li');
+        li.innerHTML = elem;
 
-        parent.appendChild(p);
+        parent.appendChild(li);
       }
     </script>
   </body>
