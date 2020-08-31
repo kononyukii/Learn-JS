@@ -8,21 +8,17 @@
   </head>
   <body>
     <div id="parent"></div>
-    <p id="elem"></p>
-    
     <script>
       "use strict";
-      let elem = document.querySelector("#elem");
+
       let parent = document.querySelector('#parent');
+      let arr = [1, 2, 3, 4, 5];
       
-      for (let i = 0; i < 5; i++) {
-        let input = document.createElement('input');
+      for (let elem of arr) {
+        let p = document.createElement('p');
+        p.innerHTML = elem + "1";
 
-        input.addEventListener('blur', function() {
-          elem.innerHTML = this.value;
-        });
-
-        parent.appendChild(input);
+        parent.appendChild(p);
       }
     </script>
   </body>
