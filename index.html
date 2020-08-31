@@ -7,23 +7,34 @@
     <title>Document</title>
   </head>
   <body>
-    <ul id="parent"></ul>
+    <table id="table"></table>
+    <input type="text" id="elem1" placeholder="Введите количество строк"/>
+    <input type="text" id="elem2" placeholder="Введите количество столбцов"/>
     <script>
       "use strict";
+      let table = document.querySelector("#table");
+      let elemI = document.querySelector("#elem1");
+      let elemK = document.querySelector("#elem2");
+      let j = 1;
 
-      let parent = document.querySelector('#parent');
-      let arr = [1, 2, 3, 4, 5];
-      
-      for (let elem of arr) {
-        let li = document.createElement('li');
-        li.innerHTML = elem;
+      elemI.addEventListener("input", function () {
+        for (let i = 0; i < Number(elemI.value); i++) {
+          let tr = document.createElement("tr");
 
-        li.addEventListener('click', function() {
-          this.innerHTML += '!';
-        });
+          elemK.addEventListener("input", function () {
+            for (let k = 0; k < Number(elemK.value); k++) {
+              let td = document.createElement("td");
 
-        parent.appendChild(li);
-      }
+              td.innerHTML = j;
+              j++
+              
+              tr.appendChild(td);
+            }
+          });
+
+          table.appendChild(tr);
+        }
+      });
     </script>
   </body>
 </html>
