@@ -8,33 +8,24 @@
   </head>
   <body>
     <table id="table"></table>
-    <input type="text" id="elem1" placeholder="Введите количество строк"/>
-    <input type="text" id="elem2" placeholder="Введите количество столбцов"/>
     <script>
       "use strict";
       let table = document.querySelector("#table");
-      let elemI = document.querySelector("#elem1");
-      let elemK = document.querySelector("#elem2");
-      let j = 1;
+      let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
 
-      elemI.addEventListener("input", function () {
-        for (let i = 0; i < Number(elemI.value); i++) {
-          let tr = document.createElement("tr");
+     for (let subArr of arr) {
+       let tr = document.createElement('tr');
+       
+       for (let elem of subArr) {
+         let td = document.createElement('td');
 
-          elemK.addEventListener("input", function () {
-            for (let k = 0; k < Number(elemK.value); k++) {
-              let td = document.createElement("td");
+         td.innerHTML = elem;
+         
+         tr.appendChild(td);
+       }
 
-              td.innerHTML = j;
-              j++
-              
-              tr.appendChild(td);
-            }
-          });
-
-          table.appendChild(tr);
-        }
-      });
+       table.appendChild(tr);
+     }
     </script>
   </body>
 </html>
