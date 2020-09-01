@@ -29,20 +29,28 @@
       "use strict";
 
       let table = document.querySelector("#table");
-      let button= document.querySelector('#button');
+      let button = document.querySelector("#button");
 
-      button.addEventListener('click', function() {
-        let tr = document.createElement('tr');
+      button.addEventListener("click", function () {
+        let trs = document.querySelectorAll("#table tr");
+        let j = 1;
+        for (let tr of trs) {
+          let td = document.createElement("td");
 
-        for (let i = 0; i < 3; i++) {
-          let td = document.createElement('td');
+          tr.appendChild(td);
+          j++;
+        }
+
+        let tr = document.createElement("tr");
+
+        for (let i = 0; i < j; i++) {
+          let td = document.createElement("td");
 
           tr.appendChild(td);
         }
 
         table.appendChild(tr);
       });
-
     </script>
   </body>
 </html>
