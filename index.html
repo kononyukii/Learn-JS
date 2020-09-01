@@ -30,11 +30,14 @@
       let table = document.querySelector("#table");
       let tds = document.querySelectorAll("#table td");
       
-      let i = tds.length;
-      
+      let i = 1;
+
       for (let td of tds) {
-        td.innerHTML = i;
-        i--;
+        td.addEventListener('click', function func() {
+          this.innerHTML = i;
+          i++;
+          this.removeEventListener('click', func);
+        });
       }
       
     </script>
