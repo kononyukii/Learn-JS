@@ -7,40 +7,42 @@
     <title>Document</title>
   </head>
   <body>
-    <table id="table"></table>
+    <table id="table">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <button id="button">Click</button>
     <script>
       "use strict";
 
       let table = document.querySelector("#table");
-      let employees = [
-        { name: "employee1", age: 30, salary: 400 },
-        { name: "employee2", age: 31, salary: 500 },
-        { name: "employee3", age: 32, salary: 600 },
-      ];
+      let button= document.querySelector('#button');
 
-      for (let empl of employees) {
-        let tr = document.createElement("tr");
+      button.addEventListener('click', function() {
+        let tr = document.createElement('tr');
 
-        let td1 = document.createElement('td');
-        td1.innerHTML = empl.name;
-        tr.appendChild(td1);
+        for (let i = 0; i < 3; i++) {
+          let td = document.createElement('td');
 
-        let td2 = document.createElement('td');
-        td2.innerHTML = empl.age;
-        tr.appendChild(td2);
-        td2.addEventListener('click', function() {
-          this.innerHTML++;
-        });
-
-        let td3 = document.createElement('td');
-        td3.innerHTML= empl.salary;
-        tr.appendChild(td3);
-        td3.addEventListener('click', function() {
-          this.innerHTML = Math.round(this.innerHTML * 1.1);
-        });
+          tr.appendChild(td);
+        }
 
         table.appendChild(tr);
-      }
+      });
+
     </script>
   </body>
 </html>
