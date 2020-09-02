@@ -12,15 +12,26 @@
       <li>2</li>
       <li>3</li>
     </ul>
+
+    <input type="submit" id="button" />
     <script>
       "use strict";
-      let parent = document.querySelector('#parent');
+      let parent = document.querySelector("#parent");
+      let button = document.querySelector("#button");
       let elems = document.querySelectorAll("#parent li");
-      
-      for (let elem of elems) {
-        elem.addEventListener('click', function() {
-          parent.removeChild(this);
-        });
+      let i = elems.length;
+
+      button.addEventListener("click", function () {
+        let li = document.createElement("li");
+        i++;
+        li.innerHTML = i;
+
+        li.addEventListener("click", () => parent.removeChild(li));
+        parent.appendChild(li);
+      });
+
+      for (let li of elems) {
+        li.addEventListener("click", () => parent.removeChild(li));
       }
     </script>
   </body>
