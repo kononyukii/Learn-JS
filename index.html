@@ -7,32 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-    <ul id="parent">
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-    </ul>
-
-    <input type="submit" id="button" />
+    <div id="parent">
+      <p id="elem">text</p>
+      <a href="" id="remove">remove</a>
+    </div>
     <script>
       "use strict";
       let parent = document.querySelector("#parent");
-      let button = document.querySelector("#button");
-      let elems = document.querySelectorAll("#parent li");
-      let i = elems.length;
-
-      button.addEventListener("click", function () {
-        let li = document.createElement("li");
-        i++;
-        li.innerHTML = i;
-
-        li.addEventListener("click", () => parent.removeChild(li));
-        parent.appendChild(li);
-      });
-
-      for (let li of elems) {
-        li.addEventListener("click", () => parent.removeChild(li));
-      }
+      let remove = document.querySelector("#remove");
+      let elem = document.querySelector("#elem");
+      
+     
+     remove.addEventListener('click', function(event) {
+       parent.removeChild(elem);
+       event.preventDefault();
+     })
     </script>
   </body>
 </html>
