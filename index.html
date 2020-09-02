@@ -7,39 +7,25 @@
     <title>Document</title>
   </head>
   <body>
-    <table id="table">
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+    <ul id="parent">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+
+    <input type="submit" id="button" />
     <script>
       "use strict";
+      let parent = document.querySelector("#parent");
+      let elems = document.querySelectorAll("li");
+      let button = document.querySelector("#button");
 
-      let table = document.querySelector("#table");
-      let tds = document.querySelectorAll("#table td");
-      
-      let i = 1;
+      let num = elems.length - 1;
 
-      for (let td of tds) {
-        td.addEventListener('click', function func() {
-          this.innerHTML = i;
-          i++;
-          this.removeEventListener('click', func);
-        });
-      }
-      
+      button.addEventListener("click", function () {
+        parent.removeChild(elems[num]);
+        num--;
+      });
     </script>
   </body>
 </html>
