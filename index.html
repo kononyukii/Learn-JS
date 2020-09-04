@@ -7,21 +7,42 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="parent">
-      <p id="elem">text</p>
-      <a href="" id="remove">remove</a>
-    </div>
+    <table id="table">
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>5</td>
+		<td>6</td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td>8</td>
+		<td>9</td>
+	</tr>
+</table>
+    
     <script>
       "use strict";
-      let parent = document.querySelector("#parent");
-      let remove = document.querySelector("#remove");
-      let elem = document.querySelector("#elem");
-      
-     
-     remove.addEventListener('click', function(event) {
-       parent.removeChild(elem);
-       event.preventDefault();
-     })
+      let trs = document.querySelectorAll('#table tr');
+
+     for (let tr of trs) {
+       let td = document.createElement('td');
+       let a = document.createElement('a');
+       a.href = '';
+       a.innerHTML = 'remove';
+
+       a.addEventListener('click', function(event) {
+        tr.parentElement.removeChild(tr);
+        event.preventDefault();
+       });
+
+       tr.appendChild(td);
+       td.appendChild(a);
+     }
     </script>
   </body>
 </html>
