@@ -7,42 +7,19 @@
     <title>Document</title>
   </head>
   <body>
-    <table id="table">
-	<tr>
-		<td>1</td>
-		<td>2</td>
-		<td>3</td>
-	</tr>
-	<tr>
-		<td>4</td>
-		<td>5</td>
-		<td>6</td>
-	</tr>
-	<tr>
-		<td>7</td>
-		<td>8</td>
-		<td>9</td>
-	</tr>
-</table>
-    
+    <div id="parent">
+      <p id="elem">text</p>
+      <input id="input" />
+    </div>
+
     <script>
       "use strict";
-      let trs = document.querySelectorAll('#table tr');
+      let elem = document.querySelector("#elem");
+      let input = document.querySelector("#input");
 
-     for (let tr of trs) {
-       let td = document.createElement('td');
-       let a = document.createElement('a');
-       a.href = '';
-       a.innerHTML = 'remove';
-
-       a.addEventListener('click', function(event) {
-        tr.parentElement.removeChild(tr);
-        event.preventDefault();
-       });
-
-       tr.appendChild(td);
-       td.appendChild(a);
-     }
+      input.addEventListener('input', function() {
+        elem.innerHTML = input.value;
+      })
     </script>
   </body>
 </html>
