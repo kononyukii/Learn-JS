@@ -7,42 +7,14 @@
     <title>Document</title>
   </head>
   <body>
-    <table id="table">
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+    <p id="elem">text</p>
+    <input type="submit" id="button" value="show" />
     <script>
       "use strict";
-      let elems = document.querySelectorAll("#table tr");
+      let elem = document.querySelector("#elem");
+      let button = document.querySelector("#button");
 
-      for (let elem of elems) {
-        let td = document.createElement("td");
-
-        let link = document.createElement("a");
-        link.href = "";
-        link.innerHTML = "decor";
-
-        td.appendChild(link);
-        elem.appendChild(td);
-
-        link.addEventListener("click", function func(event) {
-          elem.classList.toggle("colgred");
-          event.preventDefault();
-        });
-      }
+      button.addEventListener("click", () => elem.classList.toggle("hidden"));
     </script>
   </body>
 </html>
