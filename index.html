@@ -23,34 +23,16 @@
 
         elem.appendChild(span);
 
-        let removeLink = document.createElement("a");
-        removeLink.href = "";
-        removeLink.innerHTML = " remove";
+        let link = document.createElement("a");
+        link.href = "";
+        link.innerHTML = " decoration";
 
-        elem.appendChild(removeLink);
+        elem.appendChild(link);
 
-        removeLink.addEventListener("click", function (event) {
-          elem.parentElement.removeChild(elem);
+        link.addEventListener("click", function (event) {
+          span.classList.add('line');
+          link.parentElement.removeChild(link);
           event.preventDefault();
-        });
-      }
-
-      let editings = document.querySelectorAll("span");
-
-      for (let editing of editings) {
-        editing.addEventListener("click", function func() {
-          let input = document.createElement("input");
-          input.value = editing.innerHTML;
-
-          editing.innerHTML = "";
-          editing.appendChild(input);
-
-          input.addEventListener("blur", function () {
-            editing.innerHTML = this.value;
-            editing.addEventListener("click", func);
-          });
-
-          editing.removeEventListener("click", func);
         });
       }
     </script>
