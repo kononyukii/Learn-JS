@@ -7,31 +7,39 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="parent">
-      <p>text1</p>
-      <p>text2</p>
-      <p>text3</p>
-    </div>
+    <table id="table">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
     <script>
       "use strict";
-      let elems = document.querySelectorAll("#parent p");
+      let elems = document.querySelectorAll("#table tr");
 
       for (let elem of elems) {
-        let span = document.createElement("span");
-        span.innerHTML = elem.innerHTML;
-        elem.innerHTML = "";
-
-        elem.appendChild(span);
+        let td = document.createElement("td");
 
         let link = document.createElement("a");
         link.href = "";
-        link.innerHTML = " decoration";
+        link.innerHTML = "decor";
 
-        elem.appendChild(link);
+        td.appendChild(link);
+        elem.appendChild(td);
 
-        link.addEventListener("click", function (event) {
-          span.classList.add('line');
-          link.parentElement.removeChild(link);
+        link.addEventListener("click", function func(event) {
+          elem.classList.toggle("colgred");
           event.preventDefault();
         });
       }
