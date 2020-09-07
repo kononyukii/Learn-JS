@@ -7,28 +7,34 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="parent">
-      <p id="elem">text</p>
-    </div>
+    <ul>
+      <li>text</li>
+      <li>text</li>
+      <li>text</li>
+      <li>text</li>
+      <li>text</li>
+    </ul>
 
     <script>
       "use strict";
-      let elem = document.querySelector("#elem");
-      
-      elem.addEventListener('click', function func() {
-        let input = document.createElement('input');
+      let elems = document.querySelectorAll("ul li");
 
-        input.value = elem.innerHTML;
-        elem.innerHTML = '';
-        elem.appendChild(input);
+      for (let elem of elems) {
+        elem.addEventListener("click", function func() {
+          let input = document.createElement("input");
 
-        input.addEventListener('blur', function() {
-          elem.innerHTML = this.value;
-          elem.addEventListener('click', func);
+          input.value = elem.innerHTML;
+          elem.innerHTML = "";
+          elem.appendChild(input);
+
+          input.addEventListener("blur", function () {
+            elem.innerHTML = this.value;
+            elem.addEventListener("click", func);
+          });
+
+          elem.removeEventListener("click", func);
         });
-
-        elem.removeEventListener('click', func);
-      });
+      }
     </script>
   </body>
 </html>
