@@ -7,32 +7,50 @@
     <title>Document</title>
   </head>
   <body>
-    <ul>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-    </ul>
-
+    <div id="parent">
+      <p>text1</p>
+      <p>text2</p>
+      <p>text3</p>
+    </div>
     <script>
       "use strict";
-      let elems = document.querySelectorAll("ul li");
+      let elems = document.querySelectorAll("#parent p");
 
       for (let elem of elems) {
-        elem.addEventListener("click", function func() {
-          let input = document.createElement("input");
+        let span = document.createElement("span");
+        span.innerHTML = elem.innerHTML;
+        elem.innerHTML = "";
 
-          input.value = elem.innerHTML;
-          elem.innerHTML = "";
-          elem.appendChild(input);
+        elem.appendChild(span);
+
+        let removeLink = document.createElement("a");
+        removeLink.href = "";
+        removeLink.innerHTML = " remove";
+
+        elem.appendChild(removeLink);
+
+        removeLink.addEventListener("click", function (event) {
+          elem.parentElement.removeChild(elem);
+          event.preventDefault();
+        });
+      }
+
+      let editings = document.querySelectorAll("span");
+
+      for (let editing of editings) {
+        editing.addEventListener("click", function func() {
+          let input = document.createElement("input");
+          input.value = editing.innerHTML;
+
+          editing.innerHTML = "";
+          editing.appendChild(input);
 
           input.addEventListener("blur", function () {
-            elem.innerHTML = this.value;
-            elem.addEventListener("click", func);
+            editing.innerHTML = this.value;
+            editing.addEventListener("click", func);
           });
 
-          elem.removeEventListener("click", func);
+          editing.removeEventListener("click", func);
         });
       }
     </script>
