@@ -17,10 +17,17 @@
     <script>
       "use strict";
       let lis = document.querySelectorAll("li");
+      let color = 'color1';
 
       for (let li of lis) {
         li.addEventListener("click", function () {
-          this.classList.toggle("active");
+          if (color === 'color1') {
+            color = 'color2';
+          } else {
+            color = 'color1';
+          }
+
+          this.classList.toggle(color);
         });
       }
     </script>
