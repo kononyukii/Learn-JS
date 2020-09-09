@@ -7,28 +7,61 @@
     <title>Document</title>
   </head>
   <body>
-    <ul>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-      <li>text</li>
-    </ul>
     <script>
       "use strict";
-      let lis = document.querySelectorAll("li");
-      let color = 'color1';
+      let arr = [1, 2, 3, 4, 5, 6];
+      let i = 0;
 
-      for (let li of lis) {
-        li.addEventListener("click", function () {
-          if (color === 'color1') {
-            color = 'color2';
-          } else {
-            color = 'color1';
-          }
+      let ul = document.createElement("ul");
+      document.body.appendChild(ul);
 
-          this.classList.toggle(color);
+      for (let elem of arr) {
+        addLi(elem);
+      }
+
+      let button = document.createElement("input");
+      button.type = "submit";
+      button.value = "click add li";
+      document.body.appendChild(button);
+
+      button.addEventListener("click", addLi);
+
+      function addLi() {
+        let li = document.createElement("li");
+        ul.appendChild(li);
+        let span = document.createElement("span");
+        span.innerHTML = ++i;
+        li.appendChild(span);
+
+        span.addEventListener("click", func);
+
+        let remov = document.createElement("a");
+        remov.href = "#";
+        remov.innerHTML = " remove";
+        li.appendChild(remov);
+
+        remov.addEventListener("click", function (event) {
+          li.parentElement.removeChild(li);
         });
+
+        let line = document.createElement("a");
+        line.href = "#";
+        line.innerHTML = " line";
+        li.appendChild(line);
+
+        line.addEventListener("click", () => span.classList.add("throught"));
+      }
+
+      function func() {
+        let input = document.createElement("input");
+
+        input.value = this.innerHTML;
+        this.innerHTML = "";
+        this.appendChild(input);
+
+        input.addEventListener("blur", () => (this.innerHTML = input.value));
+
+        this.removeEventListener("click", func);
       }
     </script>
   </body>
