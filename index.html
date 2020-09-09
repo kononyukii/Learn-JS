@@ -9,59 +9,86 @@
   <body>
     <script>
       "use strict";
-      let arr = [1, 2, 3, 4, 5, 6];
-      let i = 0;
+      let employees = [
+        { name: "employee1", age: 30, salary: 400 },
+        { name: "employee2", age: 31, salary: 500 },
+        { name: "employee3", age: 32, salary: 600 },
+      ];
 
-      let ul = document.createElement("ul");
-      document.body.appendChild(ul);
+      let table = document.createElement("table");
+      table.id = "table";
+      document.body.appendChild(table);
 
-      for (let elem of arr) {
-        addLi(elem);
+      for (let employee of employees) {
+        addTd(employee.name, employee.age, employee.salary);
       }
 
-      let button = document.createElement("input");
-      button.type = "submit";
-      button.value = "click add li";
+      let inputName = document.createElement("input");
+      inputName.placeholder = 'name';
+      document.body.appendChild(inputName);
+
+      let inputAge = document.createElement("input");
+      inputAge.placeholder = 'age';
+      document.body.appendChild(inputAge);
+
+      let inputSalary = document.createElement("input");
+      inputSalary.placeholder = 'salary';
+      document.body.appendChild(inputSalary);
+
+      let button = document.createElement("button");
+      button.innerHTML = "click for add";
       document.body.appendChild(button);
 
-      button.addEventListener("click", addLi);
+      button.addEventListener("click", function () {
+        addTd(inputName.value, inputAge.value, inputSalary.value);
+      });
 
-      function addLi() {
-        let li = document.createElement("li");
-        ul.appendChild(li);
-        let span = document.createElement("span");
-        span.innerHTML = ++i;
-        li.appendChild(span);
+      function addTd(name, age, salary) {
+        let tr = document.createElement("tr");
 
-        span.addEventListener("click", func);
+        let nameTd = document.createElement("td");
+        nameTd.innerHTML = name;
+        tr.appendChild(nameTd);
 
+        let ageTd = document.createElement("td");
+        ageTd.innerHTML = age;
+        tr.appendChild(ageTd);
+
+        let salaryTd = document.createElement("td");
+        salaryTd.innerHTML = salary;
+        tr.appendChild(salaryTd);
+
+        let removTr = document.createElement("td");
+        removTr.classList.add("remov");
         let remov = document.createElement("a");
         remov.href = "#";
-        remov.innerHTML = " remove";
-        li.appendChild(remov);
+        remov.innerHTML = "remove";
+        removTr.appendChild(remov);
 
-        remov.addEventListener("click", function (event) {
-          li.parentElement.removeChild(li);
-        });
+        remov.addEventListener("click", () => tr.parentElement.removeChild(tr));
 
-        let line = document.createElement("a");
-        line.href = "#";
-        line.innerHTML = " line";
-        li.appendChild(line);
+        tr.appendChild(removTr);
 
-        line.addEventListener("click", () => span.classList.add("throught"));
-      }
+        table.appendChild(tr);
 
-      function func() {
-        let input = document.createElement("input");
+        let tds = document.querySelectorAll("td");
 
-        input.value = this.innerHTML;
-        this.innerHTML = "";
-        this.appendChild(input);
+        for (let td of tds) {
+          if (!td.classList.contains("remov"))
+            td.addEventListener("click", function func() {
+              let input = document.createElement("input");
+              input.value = 'new value';
+              td.innerHTML = "";
+              td.appendChild(input);
 
-        input.addEventListener("blur", () => (this.innerHTML = input.value));
+              input.addEventListener("blur", function () {
+                td.innerHTML = input.value;
+                td.addEventListener("click", func);
+              });
 
-        this.removeEventListener("click", func);
+              td.removeEventListener("click", func);
+            });
+        }
       }
     </script>
   </body>
