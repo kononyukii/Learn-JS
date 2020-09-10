@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,86 +8,85 @@
   </head>
   <body>
     <script>
-      "use strict";
       let employees = [
         { name: "employee1", age: 30, salary: 400 },
         { name: "employee2", age: 31, salary: 500 },
         { name: "employee3", age: 32, salary: 600 },
       ];
 
-      let table = document.createElement("table");
-      table.id = "table";
-      document.body.appendChild(table);
+      let ol = document.createElement("ol");
+      document.body.parentElement.appendChild(ol);
 
-      for (let employee of employees) {
-        addTd(employee.name, employee.age, employee.salary);
+      for (let i = 0; i < employees.length; i++) {
+        addNewList(employees[i].name, employees[i].age, employees[i].salary);
       }
 
-      let inputName = document.createElement("input");
-      inputName.placeholder = 'name';
-      document.body.appendChild(inputName);
-
-      let inputAge = document.createElement("input");
-      inputAge.placeholder = 'age';
-      document.body.appendChild(inputAge);
-
-      let inputSalary = document.createElement("input");
-      inputSalary.placeholder = 'salary';
-      document.body.appendChild(inputSalary);
-
+      let addName = document.createElement("input");
+      let addAge = document.createElement("input");
+      let addSalary = document.createElement("input");
       let button = document.createElement("button");
+
       button.innerHTML = "click for add";
-      document.body.appendChild(button);
+
+      document.body.parentElement.appendChild(addName);
+      document.body.parentElement.appendChild(addAge);
+      document.body.parentElement.appendChild(addSalary);
+      document.body.parentElement.appendChild(button);
 
       button.addEventListener("click", function () {
-        addTd(inputName.value, inputAge.value, inputSalary.value);
+        addNewList(addName.value, addAge.value, addSalary.value);
       });
 
-      function addTd(name, age, salary) {
-        let tr = document.createElement("tr");
+      function addNewList(name, age, salary) {
+        let ul = document.createElement("ul");
+        let li = document.createElement('li');
 
-        let nameTd = document.createElement("td");
-        nameTd.innerHTML = name;
-        tr.appendChild(nameTd);
+        let liName = document.createElement("li");
+        liName.innerHTML = name;
+        ul.appendChild(liName);
 
-        let ageTd = document.createElement("td");
-        ageTd.innerHTML = age;
-        tr.appendChild(ageTd);
+        let liAge = document.createElement("li");
+        liAge.innerHTML = age;
+        ul.appendChild(liAge);
 
-        let salaryTd = document.createElement("td");
-        salaryTd.innerHTML = salary;
-        tr.appendChild(salaryTd);
+        let liSalary = document.createElement("li");
+        liSalary.innerHTML = salary;
+        ul.appendChild(liSalary);
+      
+        ol.appendChild(li);
+        ol.appendChild(ul);
+        
+        let linkRem = document.createElement("a");
+            linkRem.href = "";
+            linkRem.innerHTML = " remove";
+            ul.appendChild(linkRem);
 
-        let removTr = document.createElement("td");
-        removTr.classList.add("remov");
-        let remov = document.createElement("a");
-        remov.href = "#";
-        remov.innerHTML = "remove";
-        removTr.appendChild(remov);
+          linkRem.addEventListener("click", function (event) {
+            li.parentElement.removeChild(li);
+            ul.parentElement.removeChild(ul);
+            event.preventDefault();
+          });
 
-        remov.addEventListener("click", () => tr.parentElement.removeChild(tr));
+        func();
+      }
 
-        tr.appendChild(removTr);
+      function func() {
+        let lis = document.querySelectorAll("ul li");
 
-        table.appendChild(tr);
+        for (let li of lis) {
+          li.addEventListener("click", function changeLi() {
+            let input = document.createElement("input");
+            input.value = 'change';
+            li.innerHTML = "";
 
-        let tds = document.querySelectorAll("td");
-
-        for (let td of tds) {
-          if (!td.classList.contains("remov"))
-            td.addEventListener("click", function func() {
-              let input = document.createElement("input");
-              input.value = 'new value';
-              td.innerHTML = "";
-              td.appendChild(input);
-
-              input.addEventListener("blur", function () {
-                td.innerHTML = input.value;
-                td.addEventListener("click", func);
-              });
-
-              td.removeEventListener("click", func);
+            input.addEventListener("blur", function () {
+              li.innerHTML = this.value;
+              li.addEventListener("click", changeLi);
             });
+
+            li.appendChild(input);
+            li.removeEventListener("click", changeLi);
+          });
         }
       }
     </script>
