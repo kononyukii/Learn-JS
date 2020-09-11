@@ -27,32 +27,10 @@
     <script>
       "use strict";
 
-      let trs = document.querySelectorAll("#table tr");
-      let i = 1;
-      let j = 1;
+      let tds = document.querySelectorAll('#table td:nth-child(3)');
 
-
-      for (let tr of trs) {
-        let tds = tr.querySelectorAll("td");
-
-        for (let td of tds) {
-          td.dataset.row = j;
-
-          td.dataset.col = i++;
-          if (i > tds.length) {
-            i = 1;
-          }
-
-          td.addEventListener('click', () => {
-            if (td.dataset.row === td.dataset.col) {
-              td.classList.add('active_mein');
-            } else {
-              td.classList.add('active_no_mein');
-            }
-          })
-        }
-
-        j++;
+      for (let td of tds) {
+        td.classList.add('active_no_mein');
       }
     </script>
   </body>
