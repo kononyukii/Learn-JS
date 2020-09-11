@@ -7,88 +7,40 @@
     <title>Document</title>
   </head>
   <body>
+    <table id="table">
+      <tr>
+        <td data-row="1" data-col="1"></td>
+        <td data-row="1" data-col="2"></td>
+        <td data-row="1" data-col="3"></td>
+      </tr>
+      <tr>
+        <td data-row="2" data-col="1"></td>
+        <td data-row="2" data-col="2"></td>
+        <td data-row="2" data-col="3"></td>
+      </tr>
+      <tr>
+        <td data-row="3" data-col="1"></td>
+        <td data-row="3" data-col="2"></td>
+        <td data-row="3" data-col="3"></td>
+      </tr>
+    </table>
     <script>
-      let employees = [
-        { name: "employee1", age: 30, salary: 400 },
-        { name: "employee2", age: 31, salary: 500 },
-        { name: "employee3", age: 32, salary: 600 },
-      ];
+      let col = 2;
+      let row = 3;
 
-      let ol = document.createElement("ol");
-      document.body.parentElement.appendChild(ol);
-
-      for (let i = 0; i < employees.length; i++) {
-        addNewList(employees[i].name, employees[i].age, employees[i].salary);
-      }
-
-      let addName = document.createElement("input");
-      let addAge = document.createElement("input");
-      let addSalary = document.createElement("input");
       let button = document.createElement("button");
+      button.innerHTML = "click";
+      document.body.appendChild(button);
 
-      button.innerHTML = "click for add";
+      let tds = document.querySelectorAll('#table td[data-row="' + row + '"]');
 
-      document.body.parentElement.appendChild(addName);
-      document.body.parentElement.appendChild(addAge);
-      document.body.parentElement.appendChild(addSalary);
-      document.body.parentElement.appendChild(button);
-
-      button.addEventListener("click", function () {
-        addNewList(addName.value, addAge.value, addSalary.value);
-      });
-
-      function addNewList(name, age, salary) {
-        let ul = document.createElement("ul");
-        let li = document.createElement('li');
-
-        let liName = document.createElement("li");
-        liName.innerHTML = name;
-        ul.appendChild(liName);
-
-        let liAge = document.createElement("li");
-        liAge.innerHTML = age;
-        ul.appendChild(liAge);
-
-        let liSalary = document.createElement("li");
-        liSalary.innerHTML = salary;
-        ul.appendChild(liSalary);
-      
-        ol.appendChild(li);
-        ol.appendChild(ul);
-        
-        let linkRem = document.createElement("a");
-            linkRem.href = "";
-            linkRem.innerHTML = " remove";
-            ul.appendChild(linkRem);
-
-          linkRem.addEventListener("click", function (event) {
-            li.parentElement.removeChild(li);
-            ul.parentElement.removeChild(ul);
-            event.preventDefault();
-          });
-
-        func();
-      }
-
-      function func() {
-        let lis = document.querySelectorAll("ul li");
-
-        for (let li of lis) {
-          li.addEventListener("click", function changeLi() {
-            let input = document.createElement("input");
-            input.value = 'change';
-            li.innerHTML = "";
-
-            input.addEventListener("blur", function () {
-              li.innerHTML = this.value;
-              li.addEventListener("click", changeLi);
-            });
-
-            li.appendChild(input);
-            li.removeEventListener("click", changeLi);
-          });
+      button.addEventListener("click", () => {
+        for (let td of tds) {
+          if(td.dataset.col == col) {
+            td.classList.add("active");
+          }
         }
-      }
+      });
     </script>
   </body>
 </html>

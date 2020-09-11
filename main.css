@@ -1,4 +1,9 @@
-.throught{
-  text-decoration: line-through;
+.active {
+  background: green;
 }
 
+td {
+  width: 100px;
+  height: 50px;
+  border: 1px solid black;
+}
