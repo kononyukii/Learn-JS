@@ -9,38 +9,48 @@
   <body>
     <table id="table">
       <tr>
-        <td data-row="1" data-col="1"></td>
-        <td data-row="1" data-col="2"></td>
-        <td data-row="1" data-col="3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
-        <td data-row="2" data-col="1"></td>
-        <td data-row="2" data-col="2"></td>
-        <td data-row="2" data-col="3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
-        <td data-row="3" data-col="1"></td>
-        <td data-row="3" data-col="2"></td>
-        <td data-row="3" data-col="3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
     </table>
     <script>
-      let col = 2;
-      let row = 3;
+      "use strict";
 
-      let button = document.createElement("button");
-      button.innerHTML = "click";
-      document.body.appendChild(button);
+      let trs = document.querySelectorAll("#table tr");
+      let i = 1;
+      let j = 1;
 
-      let tds = document.querySelectorAll('#table td[data-row="' + row + '"]');
 
-      button.addEventListener("click", () => {
+      for (let tr of trs) {
+        let tds = tr.querySelectorAll("td");
+
         for (let td of tds) {
-          if(td.dataset.col == col) {
-            td.classList.add("active");
+          td.dataset.row = j;
+
+          td.dataset.col = i++;
+          if (i > tds.length) {
+            i = 1;
           }
+
+          td.addEventListener('click', () => {
+            td.innerHTML = 'Ряд' + ' ' + td.dataset.row + '<br>' + 'Колонка' + ' ' + td.dataset.col;
+          })
         }
-      });
+
+        j++;
+      }
     </script>
   </body>
 </html>
