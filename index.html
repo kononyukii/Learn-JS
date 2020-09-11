@@ -12,7 +12,6 @@
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
       </tr>
       <tr>
         <td></td>
@@ -45,7 +44,11 @@
           }
 
           td.addEventListener('click', () => {
-            td.innerHTML = 'Ряд' + ' ' + td.dataset.row + '<br>' + 'Колонка' + ' ' + td.dataset.col;
+            if (td.dataset.row === td.dataset.col) {
+              td.classList.add('active_mein');
+            } else {
+              td.classList.add('active_no_mein');
+            }
           })
         }
 

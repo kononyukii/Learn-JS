@@ -1,6 +1,12 @@
-.active {
+.active_mein {
   background: green;
 }
+
+.active_no_mein {
+  background: red;
+}
+
+
 
 td {
   width: 100px;
