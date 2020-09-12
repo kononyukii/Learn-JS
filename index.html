@@ -7,29 +7,16 @@
     <title>Document</title>
   </head>
   <body>
-    <table id="table">
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+    <input type="text" value="text">
     <script>
       "use strict";
 
-      let td = document.querySelector("#table tr:nth-child(1) td:nth-child(3)");
+      function setText(select, text) {
+        let elem = document.querySelector(select);
+        elem.innerHTML += ' text';
+      }
 
-      td.classList.add("active_no_mein");
+      setText('h2', 'test');
     </script>
   </body>
 </html>
