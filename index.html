@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,16 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" value="text">
+    <p class="elem">Hello</p>
+    <p class="elem">Hello</p>
+    <p class="elem">Hello</p>
     <script>
       "use strict";
 
-      function setAttr(select, text) {
-        let elem = document.querySelector(select);
-        elem.value= text;
+      function appendText(select, text) {
+        let elems = document.querySelectorAll(select);
+
+        for (let elem of elems) {
+          elem.innerHTML += text;
+        }
       }
 
-      setAttr('input', 'Hello')
+      appendText(".elem", "World");
     </script>
   </body>
 </html>
