@@ -11,12 +11,12 @@
     <script>
       "use strict";
 
-      function setText(select, text) {
+      function setAttr(select, text) {
         let elem = document.querySelector(select);
-        elem.innerHTML += ' text';
+        elem.value= text;
       }
 
-      setText('h2', 'test');
+      setAttr('input', 'Hello')
     </script>
   </body>
 </html>
