@@ -13,15 +13,17 @@
     <script>
       "use strict";
 
-      function appendText(select, text) {
+      function forEach(select, func) {
         let elems = document.querySelectorAll(select);
 
         for (let elem of elems) {
-          elem.innerHTML += text;
+          func(elem);
         }
       }
 
-      appendText(".elem", "World");
+      forEach(".elem", function (elem) {
+        elem.innerHTML += '!';
+      });
     </script>
   </body>
 </html>
