@@ -7,26 +7,17 @@
     <title>Document</title>
   </head>
   <body>
-    <p class="elem1">Hello</p>
-    <p class="elem2">Hello</p>
-    <p class="elem">Hello</p>
+    <input type="text" value="hello" />
     <script>
-      "use strict";
+        "use strict";
 
-     function appendText(elem, text) {
-       elem.innerHTML += text;
-     }
+      let input = document.querySelector('input');
 
-     let elem1 = document.querySelector('.elem1');
-     let elem2 = document.querySelector('.elem2');
-     let elems = document.querySelectorAll('p');
+      function setValue(elem, text) {
+        elem.value = text;
+      }
 
-     appendText(elem1, ' World');
-     appendText(elem2, ' Hello!')
-
-     for (let elem of elems) {
-       appendText(elem, '!')
-     }
+      setValue(input, 'World')
     </script>
   </body>
 </html>
