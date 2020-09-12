@@ -7,23 +7,26 @@
     <title>Document</title>
   </head>
   <body>
-    <p class="elem">Hello</p>
-    <p class="elem">Hello</p>
+    <p class="elem1">Hello</p>
+    <p class="elem2">Hello</p>
     <p class="elem">Hello</p>
     <script>
       "use strict";
 
-      function forEach(selector, func) {
-        let elems = document.querySelectorAll(selector);
+     function appendText(elem, text) {
+       elem.innerHTML += text;
+     }
 
-        for (let i = 0; i < elems.length; i++) {
-          func(elems[i], i + 1);
-        }
-      }
+     let elem1 = document.querySelector('.elem1');
+     let elem2 = document.querySelector('.elem2');
+     let elems = document.querySelectorAll('p');
 
-      forEach('.elem', function(elem, index) {
-        elem.innerHTML = index + elem.innerHTML ;
-      });
+     appendText(elem1, ' World');
+     appendText(elem2, ' Hello!')
+
+     for (let elem of elems) {
+       appendText(elem, '!')
+     }
     </script>
   </body>
 </html>
