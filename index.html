@@ -12,54 +12,10 @@
       <p>2</p>
       <p>3</p>
     </div>
-
     <script>
       "use strict";
 
-      function createTableByArr(arr) {
-        let t = document.createElement("table");
-        for (let subArr of arr) {
-          let tr = document.createElement("tr");
-          for (let elem of subArr) {
-            let td = document.createElement("td");
-            td.innerHTML = elem;
-            tr.appendChild(td);
-          }
-          t.appendChild(tr);
-        }
-        return t;
-      }
-
-      function convertArr(arr, cols) {
-        let resArr = [];
-        let rows = arr.length / cols;
-        for (let k = 0; k < rows; k++) {
-          let subArr = [];
-          for (let i = 0; i < cols; i++) {
-            let x = arr.shift();
-            if (x != undefined) subArr.push(x);
-          }
-          resArr.push(subArr);
-        }
-        return resArr;
-      }
-
-      function normalizeArr(arr, cols, aggregate) {
-        let lastSubArr = arr.pop();
-        for (let i = 0; i < cols; i++) {
-          if (lastSubArr[i] == undefined){
-            lastSubArr.push(aggregate);
-          } 
-        }
-        arr.push(lastSubArr);
-        return arr;
-      }
-
-      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-      let table = createTableByArr(normalizeArr(convertArr(arr, 5), 5, "-"));
-      let div = document.createElement("div");
-      div.appendChild(table);
-      document.body.appendChild(div);
+     
     </script>
   </body>
 </html>
