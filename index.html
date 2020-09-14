@@ -12,54 +12,49 @@
       <p>2</p>
       <p>3</p>
     </div>
+
     <script>
       "use strict";
 
-      let div = document.querySelector("#elem");
+      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+      let cols = 4;
 
-      let arr = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9],
-      ];
-      let table = createTableByArr(arr);
+      let table = createTableByArr(convertArr(arr, cols));
 
-      div.appendChild(table);
+      function convertArr(arr, cols) {
+        let arrNew = [];
+        let rows = arr.length / cols;
+
+        for (let i = 0; i < rows; i++) {
+          let subArr = [];
+
+          for (let j = 0; j < cols; j++) {
+            subArr.push(arr.shift());
+          }
+
+          arrNew.push(subArr);
+        }
+
+        return arrNew;
+      }
 
       function createTableByArr(arr) {
-        let table = document.createElement("table");
-
-        for (let elems of arr) {
+        let t = document.createElement("table");
+        for (let subArr of arr) {
           let tr = document.createElement("tr");
-
-          for (let elem of elems) {
+          for (let elem of subArr) {
             let td = document.createElement("td");
             td.innerHTML = elem;
             tr.appendChild(td);
           }
-
-          table.appendChild(tr);
+          t.appendChild(tr);
         }
-
-        return table;
+        return t;
       }
 
-      function createTable(rows, cols) {
-        let table = document.createElement("table");
+      let div = document.querySelector('#elem');
 
-        for (let i = 0; i < rows; i++) {
-          let tr = document.createElement("tr");
-
-          for (let i = 0; i < cols; i++) {
-            let td = document.createElement("td");
-            tr.appendChild(td);
-          }
-
-          table.appendChild(tr);
-        }
-
-        return table;
-      }
+      div.appendChild(table);
     </script>
   </body>
 </html>
