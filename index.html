@@ -7,17 +7,23 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" value="hello" />
+    <p class="elem">text</p>
+    <p class="elem">text</p>
+    <p class="elem">text</p>
+    <p class="elem">text</p>
+    <p class="elem">text</p>
     <script>
-        "use strict";
+      "use strict";
 
-      let input = document.querySelector('input');
+      let elems = document.querySelectorAll('.elem');
 
-      function setValue(elem, text) {
-        elem.value = text;
+      function appendText(elems, text) {
+        for (let elem of elems) {
+          elem.innerHTML += text;
+        }
       }
 
-      setValue(input, 'World')
+      appendText(elems, ' lorem ipsum');
     </script>
   </body>
 </html>
