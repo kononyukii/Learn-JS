@@ -7,23 +7,23 @@
     <title>Document</title>
   </head>
   <body>
-    <p class="elem">text</p>
-    <p class="elem">text</p>
-    <p class="elem">text</p>
-    <p class="elem">text</p>
-    <p class="elem">text</p>
+    <ul id="element">
+      <li>text</li>
+      <li>text</li>
+    </ul>
     <script>
       "use strict";
 
-      let elems = document.querySelectorAll('.elem');
+      let elem = document.querySelector('#element');
 
-      function appendText(elems, text) {
-        for (let elem of elems) {
-          elem.innerHTML += text;
-        }
+      function appendElem(elem, text) {
+        let li = document.createElement('li');
+        li.innerHTML = text;
+        elem.appendChild(li);
       }
 
-      appendText(elems, ' lorem ipsum');
+      appendElem(elem, 'lorem');
+      appendElem(elem, 'ipsum');
     </script>
   </body>
 </html>
