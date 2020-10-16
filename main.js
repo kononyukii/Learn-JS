@@ -1,23 +1,34 @@
 "use strict";
-//Дана строка:
-let str = 'ahb acb aeb aeeb adcb axeb';
-/*Напишите регулярку, которая найдет строки 'ahb', 'acb', 'aeb' 
-по шаблону: буква 'a', любой символ, буква 'b'.*/
-
-let newStr = str.replace(/a.b/g, '!');
 
 //Дана строка:
-str = 'aba aca aea abba adca abea';
-/*Напишите регулярку, которая найдет строки 'abba', 'adca', 'abea' 
-по шаблону: буква 'a', 2 любых символа, буква 'a'.*/
+let str = 'aa aba abba abbba abca abea';
+/*Напишите регулярку, которая найдет строки 'aba', 'abba', 'abbba' 
+по шаблону: буква 'a', буква 'b' любое количество раз, буква 'a'.*/
 
-newStr = str.replace(/a..a/g, '!');
+let res = str.replace(/ab+a/g, '!');
+
 
 //Дана строка:
-str = 'aba aca aea abba adca abea';
-/*Напишите регулярку, 
-которая найдет строки 'abba' и 'abea', не захватив 'adca'.*/
+str = 'aa aba abba abbba abca abea';
+/*Напишите регулярку, которая найдет строки 'aa', 'aba', 'abba', 'abbba' 
+по шаблону: буква 'a', буква 'b' любое количество раз 
+(в том числе ниодного раза), буква 'a'.*/
 
-newStr = str.replace(/ab.a/g, '!')
+res = str.replace(/ab*a/g, '!')
 
-console.log(newStr);
+
+//Дана строка:
+str = 'aa aba abba abbba abca abea';
+/*Напишите регулярку, которая найдет строки 'aa', 'aba' 
+по шаблону: буква 'a', буква 'b' один раз или ниодного, буква 'a'.*/
+
+res = str.replace(/ab?a/g, '!');
+
+
+//Дана строка:
+str = 'aa aba abba abbba abca abea';
+/*Напишите регулярку, которая найдет строки 
+'aa', 'aba', 'abba', 'abbba', не захватив 'abca' и 'abea'.*/
+
+res = str.replace(/ab*a/g, '!');
+console.log(res);
