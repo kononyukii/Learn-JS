@@ -1,22 +1,17 @@
 "use strict";
 
-//Дана строка:
-let str = 'site.ru sss site.com zzz site.net';
-//Получите массив доменных имен из этой строки.
-let res = str.match(/[a-z]+\.[a-z]{2,3}/g);
+//Дана строка, содержащая домен:
+let str = 'sss domain.ru zzz';
+/* Найдите этот домен и положите его имя в первый карман, 
+а зону - во второй. */
+let res = str.match(/([a-z]+)\.([a-z]{2,3})/);
 
 console.log(res);
 
 
-//Дана строка:
-str = 'a1b c34d x567z';
-//Найдите сумму всех чисел этой строки.
+//Дана строка, содержащая дату:
+str = '31.12.2025';
+//Положите день в первый карман, месяц - во второй, а год - в третий.
+res = str.match(/(\d{2})\.(\d{2})\.(\d{4})/);
 
-res = str.match(/\d+/g);
-
-let sum = 0;
-for (let num of res) {
-    sum += Number(num);
-}
-
-console.log(sum);
+console.log(res);
