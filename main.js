@@ -1,3 +1,3 @@
-document.querySelector('#elem').addEventListener('dragend', function (event) {
-	this.style.borderColor = 'green';
+document.querySelector('#elem').addEventListener('drag', function (event) {
+	console.log('!')
 });
