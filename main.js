@@ -1,13 +1,13 @@
-/* document.querySelector('#elem').addEventListener('drag', function (event) {
-	console.log('!')
-}); */
-
 let parent = document.querySelector('#parent');
 
-parent.addEventListener('dragenter', function (event) {
-	this.innerHTML = '!';
+document.querySelector('#elem').addEventListener('drag', function (event) {
+	parent.style.border = 'dotted 1px red';
 });
 
-parent.addEventListener('dragleave', function (event) {
+/* parent.addEventListener('dragenter', function (event) {
+	this.innerHTML = '!';
+}); */
+
+/* parent.addEventListener('drop', function (event) {
 	this.innerHTML = '';
-});
+}); */
