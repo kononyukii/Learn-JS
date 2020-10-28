@@ -4,6 +4,10 @@
 
 let parent = document.querySelector('#parent');
 
-parent.addEventListener('dragover', function (event) {
-	this.style.borderStyle = 'dotted';
+parent.addEventListener('dragenter', function (event) {
+	this.innerHTML = '!';
+});
+
+parent.addEventListener('dragleave', function (event) {
+	this.innerHTML = '';
 });
