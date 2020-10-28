@@ -1,9 +1,3 @@
-"use strict";
-
-//Дана строка с датой и временем:
-let str = '2025-12-31 12:59:59';
-/* Разбейте эту так, чтобы все части даты и времени были в одном массиве. 
-То есть у вас должен получится следующий массив: ['2025', '12', '31', '12', '59', '59']; */
-let res = str.split(/[-:]/)
-
-console.log(res);
+document.querySelector('#elem').addEventListener('dragstart', function (event) {
+	this.style.borderColor = 'green';
+});
