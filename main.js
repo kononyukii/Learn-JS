@@ -1,14 +1,24 @@
-let elem = document.querySelector('#elem');
+'use strict';
 
-let offsetX;
-let offsetY;
+let current;
 
-elem.addEventListener('dragstart', function (event) {
-	offsetX = event.offsetX;
-	offsetY = event.offsetY;
+let elems = document.querySelectorAll('.elem');
+let parent = document.querySelector('#parent');
+
+
+
+elems.forEach(function (elem) {
+	elem.addEventListener('dragstart', function (event) {
+		current = this;
+	});
 });
 
-elem.addEventListener('dragend', function (event) {
-	this.style.top = (event.pageY - offsetY) + 'px';
-	this.style.left = (event.pageX - offsetX) + 'px';
+
+
+parent.addEventListener('drop', function(event) {
+	this.appendChild(current);
+});
+
+parent.addEventListener('dragover', function (event) {
+	event.preventDefault();
 });

@@ -1,14 +1,24 @@
-#elem {
-  width: 100px;
-  height: 100px;
-  border: 1px solid black;
-  margin-bottom: 10px;
-
-  position: absolute;
+.elem {
+  width: 50px;
+  height: 50px;
+  border: 1px solid red;
+  margin-left: 10px;
 }
 #parent {
-  width: 300px;
+  width: 200px;
   height: 200px;
-  
-  margin-top: 10px;
+  margin-top: 50px;
+  border: 1px solid black;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#panel {
+  width: 400px;
+  height: 100px;
+  border: 1px solid green;
+
+  display: flex;
+  align-items: center;
 }
