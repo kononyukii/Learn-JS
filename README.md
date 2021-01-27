@@ -1,2 +1,2 @@
-# Test
-Learn Git Hab and JS
+# Learn JS
+
